@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Editor directories and IDE
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 환경 변수 파일
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
