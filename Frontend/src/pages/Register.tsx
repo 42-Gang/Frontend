@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button_verify_Off from "../assets/image/Button_verify_Off.svg";
 import Button_verify_On from "../assets/image/Button_verify_On.svg";
+import Selection from '../assets/image/Selection.svg';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -110,11 +111,9 @@ const Register = () => {
                 </div>
                 <div className="flex flex-col items-center mt-8 text-sm space-y-4">
                     <button
-                    className="w-[150px] text-white font-['QuinqueFive'] relative group translate-x-[-20px]"
+                    className="w-[150px] text-white font-['QuinqueFive'] relative group translate-x-[-12px] flex justify-center items-center space-x-2 cursor-pointer"
                     onClick={handleRegisterClick}>
-                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        ➡️
-                    </span>
+                    <img src={Selection}className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
                     REGISTER
                     </button>
                 </div>

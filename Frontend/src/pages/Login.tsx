@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Selection from '../assets/image/Selection.svg';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -26,21 +27,17 @@ const Login = () => {
                 </div>
                 <div className="flex flex-col items-center mt-8 text-sm space-y-4">
                     <button
-                    className="w-[150px] text-white font-['QuinqueFive'] relative group translate-x-[-20px]"
+                    className="w-[150px] text-white font-['QuinqueFive'] relative group translate-x-[-20px] flex justify-center items-center space-x-2 cursor-pointer"
                     onClick={handleSignInClick}
                     >
-                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        ➡️
-                    </span>
+                    <img src={Selection} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     SIGN-IN
                     </button>
                     <button
-                    className="w-[150px] text-white font-['QuinqueFive'] relative group translate-x-[-20px]"
+                    className="w-[150px] text-white font-['QuinqueFive'] relative group translate-x-[-20px]  flex justify-center items-center space-x-2 cursor-pointer"
                     onClick={handleSignUpClick}
                     >
-                    <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        ➡️
-                    </span>
+                    <img src={Selection} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
                     SIGN-UP
                     </button>
                 </div>
