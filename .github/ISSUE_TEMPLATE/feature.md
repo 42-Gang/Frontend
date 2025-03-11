@@ -1,5 +1,5 @@
 ---
-name: 기능 이슈 생성 템플릿
+name: FEATURE
 about: 해당 템플릿을 이슈 생성시 사용해주세요.
 title: "[FEAT] 이슈 제목"
 labels: ''
