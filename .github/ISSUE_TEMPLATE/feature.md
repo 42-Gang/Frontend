@@ -1,10 +1,9 @@
 ---
-name: 기능 이슈 생성 템플릿
+name: feature
 about: 해당 템플릿을 이슈 생성시 사용해주세요.
 title: "[FEAT] 이슈 제목"
-labels: ''
-assignees: ''
-
+labels: ""
+assignees: ""
 ---
 
 # 💻 이슈 내용
@@ -12,6 +11,7 @@ assignees: ''
 - 이슈 내용 구현 관련 상세 내용 작성
 
 ## ✅ 작업 상세 내용
+
 - [ ] TODO
 - [ ] TODO
 - [ ] TODO
