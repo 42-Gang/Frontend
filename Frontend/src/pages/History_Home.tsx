@@ -12,7 +12,7 @@ const History_Home = () => {
             <div className="w-[800px] h-[600px] bg-black">
                 <button>
                     <img
-                    className="absolute top-82 left-55 cursor-pointer"
+                    className="cursor-pointer ml-[4px] mt-[6px]"
                     src={Button_Back}
                     onClick={handleBackClick}
                     />

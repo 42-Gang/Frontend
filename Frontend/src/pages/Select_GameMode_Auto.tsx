@@ -17,12 +17,12 @@ const Select_GameMode_Auto = () => {
             <div className="w-[800px] h-[600px] bg-black">
                 <button>
                     <img
-                    className="absolute top-82 left-55 cursor-pointer"
+                    className="cursor-pointer ml-[4px] mt-[6px]"
                     src={Button_Back}
                     onClick={handleBackClick}
                     />
                 </button>
-                <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-7 text-center">PING PONG</h1>
+                <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-2 text-center">PING PONG</h1>
                 <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-3 text-center">GANG</h1>
                 <div className="ml-[54px] mt-[30px] space-x-10 text-white font-['StWinterPixel24BoldDemoBold'] text-5xl ">
                     <button className="cursor-pointer relative group">
