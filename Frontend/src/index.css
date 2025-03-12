@@ -11,10 +11,22 @@
   src: url('./assets/fonts/QuinqueFive.ttf');
 }
 
-/* 색상 정의 */
+@font-face {
+  font-family: 'StWinterPixel24BoldDemoBold';
+  src: url('./assets/fonts/StWinterPixel24BoldDemoBold.otf');
+}
+
+@font-face {
+  font-family: 'Sixtyfour-Regular';
+  src: url('./assets/fonts/Sixtyfour-Regular.ttf');
+}
+
+/* Color */
+
+/* 1 */
 @layer base {
   :root {
-    --Main-title: #C96565; /* CSS 변수 이름 앞에 -- 추가 */
+    --Main-title: #C96565;
   }
 }
 
@@ -22,4 +34,9 @@
   .MainTitleColor {
     color: var(--Main-title);
   }
+}
+
+/* 좌우 반전 css */
+.flip-image {
+  transform: scaleX(-1);
 }
