@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Button_Back from '../../assets/image/Button_Back.svg';
 import Button_History_On from '../../assets/image/Button_History_On.svg';
 import Button_History_Off from '../../assets/image/Button_History_Off.svg';
-import Display_1vs1 from '../../assets/image/Display_1vs1.svg';
-import Display_Tournament from '../../assets/image/Display_Tournament.svg';
 
 const History_Home = () => {
     const navigate = useNavigate();
