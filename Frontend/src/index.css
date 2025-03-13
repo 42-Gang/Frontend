@@ -21,9 +21,12 @@
   src: url('./assets/fonts/Sixtyfour-Regular.ttf');
 }
 
-/* Color */
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter.ttf');
+}
 
-/* 1 */
+/* Color */
 @layer base {
   :root {
     --Main-title: #C96565;
@@ -33,6 +36,30 @@
 @layer components {
   .MainTitleColor {
     color: var(--Main-title);
+  }
+}
+
+@layer base {
+  :root {
+    --Change-NickName: #827E7C;
+  }
+}
+
+@layer components {
+  .ChangeNickName {
+    color: var(--Change-NickName);
+  }
+}
+
+@layer base {
+  :root {
+    --A91515: #F56161;
+  }
+}
+
+@layer components {
+  .A91515 {
+    color: var(--A91515);
   }
 }
 

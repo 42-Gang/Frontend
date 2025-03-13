@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Button_GameOption_Off from '../assets/image/Button_GameOption_Off.svg';
-import Bullet from '../assets/image/Bullet.svg';
-import Button_GameOption_On from '../assets/image/Button_GameOption_On.svg';
+import Button_GameOption_Off from '../../assets/image/Button_GameOption_Off.svg';
+import Bullet from '../../assets/image/Bullet.svg';
+import Button_GameOption_On from '../../assets/image/Button_GameOption_On.svg';
 
 const Select_GameOption = () => {
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Select_GameOption = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
             <div className="w-[800px] h-[600px] bg-black">
                 <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-13 text-center">PING PONG</h1>
                 <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-3 text-center">GANG</h1>

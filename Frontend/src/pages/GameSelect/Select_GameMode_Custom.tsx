@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import Button_Back from '../assets/image/Button_Back.svg'
-import Button_GameMode_Off from '../assets/image/Button_GameMode_Off.svg'
-import Button_GameMode_On from '../assets/image/Button_GameMode_On.svg'
-import Vs from '../assets/image/1Vs1.svg';
-import Tournament from '../assets/image/Tournament.svg';
+import Button_Back from '../../assets/image/Button_Back.svg'
+import Button_GameMode_Off from '../../assets/image/Button_GameMode_Off.svg'
+import Button_GameMode_On from '../../assets/image/Button_GameMode_On.svg'
+import Vs from '../../assets/image/1Vs1.svg';
+import Tournament from '../../assets/image/Tournament.svg';
 
 const Select_GameMode_Custom = () => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Select_GameMode_Custom = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
             <div className="w-[800px] h-[600px] bg-black">
                 <button>
                     <img
