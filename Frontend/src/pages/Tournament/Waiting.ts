@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import SixtyfourFont from "../../assets/fonts/Sixtyfour.ttf";
 
 // 로딩중
 const spin = keyframes`

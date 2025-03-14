@@ -12,6 +12,7 @@ import Setting from "./pages/Setting";
 import History_Home from "./pages/History_Home";
 import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
+import Invitation from "./pages/Tournament/invitation.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -50,6 +51,7 @@ const App = () => {
           {/* 토너먼트 */}
           <Route path="/Tournament" element={<Tournament />} />
           <Route path="/Waiting" element={<Waiting />} />
+          <Route path="/Invitation" element={<Invitation />} />
         </Routes>
       </Router>
     </>
