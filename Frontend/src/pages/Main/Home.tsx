@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Gun from '../assets/image/Gun.svg';
-import Selection from '../assets/image/Selection.svg';
-import History_Home from './History_Home';
+import Gun from '../../assets/image/Gun.svg';
+import Selection from '../../assets/image/Selection.svg';
+import History_Home from '../GameHistory/History_Home';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Home = () => {
 
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
             <div className="w-[800px] h-[600px] bg-black">
                 <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-20 text-center">PING PONG</h1>
                 <div className="flex justify-center">

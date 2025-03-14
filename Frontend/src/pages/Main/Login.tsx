@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Selection from '../assets/image/Selection.svg';
+import Selection from '../../assets/image/Selection.svg';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
             <div className="w-[800px] h-[600px] bg-black">
                 <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-20 text-center">PING PONG</h1>
                 <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-3 text-center">GANG</h1>

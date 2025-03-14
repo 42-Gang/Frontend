@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button_verify_Off from "../assets/image/Button_verify_Off.svg";
-import Button_verify_On from "../assets/image/Button_verify_On.svg";
-import Selection from '../assets/image/Selection.svg';
+import Button_Back from '../../assets/image/Button_Back.svg';
+import Button_verify_Off from "../../assets/image/Button_verify_Off.svg";
+import Button_verify_On from "../../assets/image/Button_verify_On.svg";
+import Selection from '../../assets/image/Selection.svg';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -15,6 +16,10 @@ const Register = () => {
 
 // Page Handler
     const handleRegisterClick = () => {
+        navigate('/');
+    };
+
+    const handleBackClick = () => {
         navigate('/');
     };
 
@@ -47,10 +52,19 @@ const Register = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
             <div className="w-[800px] h-[600px] bg-black">
-                <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-20 text-center">PING PONG</h1>
-                <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-3 text-center">GANG</h1>
+                <button>
+                        <img
+                        className="cursor-pointer ml-[4px] mt-[6px]"
+                        src={Button_Back}
+                        onClick={handleBackClick}
+                        />
+                </button>
+                <div className="mt-9">
+                    <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl text-center">PING PONG</h1>
+                    <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-3 text-center">GANG</h1>
+                </div>
                 <div className="text-white font-['QuinqueFive'] flex justify-center mt-9 text-sm">
                     <div className="flex items-center">
                         <p>EMAIL:</p>
