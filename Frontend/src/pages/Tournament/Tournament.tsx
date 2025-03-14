@@ -12,13 +12,17 @@ import {
   ReadyButton,
 } from "./Tournament";
 
+interface TournamentProps {
+  onReadyClick?: () => void;
+}
+
 // 예제 채팅 데이터 (나중에 API로 대체)
 const mockMessages = [
   { id: 1, user: "Ping", message: "시작해" },
   { id: 2, user: "Pong", message: "오키" },
 ];
 
-const Tournament = () => {
+const Tournament: React.FC<TournamentProps> = ({ onReadyClick }) => {
   const [messages, setMessages] = useState(mockMessages);
   const [inputValue, setInputValue] = useState("");
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -44,7 +48,7 @@ const Tournament = () => {
       <GlobalStyle />
       <TournamentContainer>
         <TournamentTitle>Tournament</TournamentTitle>
-        <ReadyButton />
+        <ReadyButton onClick={onReadyClick} />
       </TournamentContainer>
       <ChatContainer>
         <ChatHeader>Chat</ChatHeader>

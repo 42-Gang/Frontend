@@ -21,7 +21,7 @@ export const TournamentContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   padding: 20px;
