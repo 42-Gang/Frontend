@@ -6,7 +6,7 @@ import ConfirmLogOutPopup from '../../components/Setting/ConfirmLogOutPopup';
 import Button_Back from '../../assets/image/Button_Back.svg';
 import Button_Change_NickName from '../../assets/image/Button_Change_NickName.svg';
 import Button_Change_Profile from '../../assets/image/Button_Change_Profile.svg';
-import ProfileSection_InSetting from '../../assets/image/ProfileSection_InSetting.svg';
+import profileSection_InSetting from '../../assets/image/profileSection_InSetting.svg';
 import Button_LogOut_Off from '../../assets/image/Button_LogOut_Off.svg';
 import Button_LogOut_On from '../../assets/image/Button_LogOut_On.svg';
 
@@ -15,6 +15,8 @@ const Setting = () => {
     const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
     const [isNickNamePopupOpen, setIsNickNamePopupOpen] = useState(false);
     const [isConfirmLogOutPopupOpen, setIsConfirmLogOutPopupOpen] = useState(false);
+    const [nickName, setNickName] = useState("");
+    const [profileImg, setProfileImg] = useState<string | null>(null);
 
     const handleBackClick = () => {
         navigate('/Home');
@@ -44,6 +46,10 @@ const Setting = () => {
         setIsConfirmLogOutPopupOpen(false);
     };
 
+    const handleProfileChange = (newProfile: string | null) => {
+        setProfileImg(newProfile);
+    };
+
     return (
         <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto ">
             <div className="w-[800px] h-[600px] bg-black relative">
@@ -63,9 +69,14 @@ const Setting = () => {
                             <h1
                             className="text-4xl flex justify-center mt-5"
                             >Setting</h1>
-                        <div className="flex items-center w-full mt-16">
+                        <div className="flex items-center w-full mt-[80px] ml-[50px]">
                             <div className="relative">
-                                <img src={ProfileSection_InSetting} className="ml-[70px]"/>
+                                {profileImg ? (
+                                    <img src={profileImg} className="w-[249px] h-[249px] rounded-full object-cover"/>
+                                ) : (
+                                    <img src={profileSection_InSetting} className="w-[249px] h-[249px] rounded-full object-cover"/>
+                                )
+                                }
                                 <button
                                 className="absolute bottom-2 right-2 cursor-pointer"
                                 onClick={handleOpenProfilePopup}
@@ -75,9 +86,9 @@ const Setting = () => {
                             </div>
                             <div className="text-white text-2xl space-y-2 ml-[80px] flex flex-col">
                                 <div className="flex">
-                                    <span className="block">NickName:</span>
+                                    <span className="block">NickName:{nickName}</span>
                                     <button
-                                    className="cursor-pointer ml-[130px]"
+                                    className="cursor-pointer ml-[130px] absolute right-[20px]"
                                     onClick={handleOpenNickNamePopup}
                                     >
                                         <img src={Button_Change_NickName}/>
@@ -89,7 +100,7 @@ const Setting = () => {
                             </div>
                         </div>
                         <button
-                        className="cursor-pointer group mt-17 ml-14 flex flex-col items-center"
+                        className="cursor-pointer group mt-16 ml-14 flex flex-col items-center"
                         onClick={handleOpenConfirmLogOutPopup}
                         >
                             <img
@@ -108,12 +119,12 @@ const Setting = () => {
                 </div>
             {isProfilePopupOpen && (
                 <div className="absolute inset-0 flex justify-center items-center">
-                    <ChangeProfilePopup onClose={handleCloseProfilePopup}/>
+                    <ChangeProfilePopup onClose={handleCloseProfilePopup} onChangeProfile={handleProfileChange}/>
                 </div>
             )}
             {isNickNamePopupOpen && (
                 <div className="absolute inset-0 flex justify-center items-center">
-                    <ChangeNickNamePopup onClose={handleCloseNickNamePopup}/>
+                    <ChangeNickNamePopup onClose={handleCloseNickNamePopup} onChangeNickName={setNickName}/>
                 </div>
             )}
             {isConfirmLogOutPopupOpen && (

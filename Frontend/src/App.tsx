@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyles";
 import Login from "./pages/Main/Login.tsx";
@@ -10,6 +10,7 @@ import Select_GameMode_Auto from "./pages/GameSelect/Select_GameMode_Auto.tsx";
 import Select_GameMode_Custom from "./pages/GameSelect/Select_GameMode_Custom.tsx";
 import Setting from "./pages/Setting/Setting.tsx";
 import History_Home from "./pages/GameHistory/History_Home.tsx";
+// import History_1vs1 from "./pages/GameHistory/History_1vs1.tsx";
 import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
 import Invitation from "./pages/Tournament/invitation.tsx";
@@ -33,9 +34,11 @@ const App = () => {
       <GlobalStyle />
       <Router>
         <Routes>
+          {/* 메인 홈페이지 */}
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Home" element={<Home />} />
+          {/* 게임 선택 홈페이지 */}
           <Route path="/Select_GameOption" element={<Select_GameOption />} />
           <Route
             path="/Select_GameMode_Auto"
@@ -45,9 +48,10 @@ const App = () => {
             path="/Select_GameMode_Custom"
             element={<Select_GameMode_Custom />}
           />
+          {/* 사용자 관련 유틸 */}
           <Route path="/Setting" element={<Setting />} />
           <Route path="/History_Home" element={<History_Home />} />
-
+          {/* <Route path="/History_1vs1" element={<History_1vs1 />} /> */}
           {/* 토너먼트 */}
           <Route path="/Tournament" element={<Tournament />} />
           <Route path="/Waiting" element={<Waiting />} />
