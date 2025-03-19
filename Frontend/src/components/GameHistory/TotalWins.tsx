@@ -6,7 +6,7 @@ const TotalWins: React.FC<TotalWinsProps> = ({ totalWins }) => {
     return (
         <div className="flex flex-col items-center mt-[20px]">
             <div className="text-[40px]">
-                <h2 className="w-[410px]">TOTAL WINS</h2>
+                <h2 className="w-[400px]">TOTAL WINS</h2>
             </div>
             <div className="flex justify-center text-[60px] text-yellow-300">
                 <div className="w-[80px] relative">

@@ -12,7 +12,7 @@ const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, setMode }) => {
             <h2 className="text-lg mb-4">Please select the mode</h2>
             <div className="flex gap-[90px] justify-center py-[10px]">
                 <button
-                    className="relative text-[13px]"
+                    className="relative text-[13px] cursor-pointer"
                     onClick={() => setMode("1vs1")}
                 >
                     <img
@@ -22,7 +22,7 @@ const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, setMode }) => {
                     </span>
                 </button>
                 <button
-                    className="relative text-[13px]"
+                    className="relative text-[13px] cursor-pointer"
                     onClick={() => setMode("Tournament")}
                 >
                     <img

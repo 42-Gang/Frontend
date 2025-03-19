@@ -16,7 +16,7 @@ const GameRecord: React.FC<GameRecordProps> = ({ history }) => {
                     >
                         {"player" in game ? (
                             <>
-                                <span className="text-xs flex items-center">
+                                <span className="text-xs flex items-center font-bold">
                                     {game.player} VS {game.opponent}
                                 </span>
                                 <span className={game.result === "WIN" ? "text-blue-500" : "text-red-500"}>
@@ -25,18 +25,15 @@ const GameRecord: React.FC<GameRecordProps> = ({ history }) => {
                             </>
                         ) : (
                             <>
-                            <span>
-                                {game.gameMode}
-                            </span>
-                            <div className="text-sm">
-                                {game.team.map((member, i) => (
-                                    <div key={i}>{member}</div>
-                                ))}
-                            </div>
-
-                            <span className={game.result === "WIN" ? "text-blue-500" : "text-red-500"}>
-                                {game.result}!
-                            </span>
+                                <span className="text-sm font-bold">{game.gameMode}</span>
+                                <div className="text-sm font-bold text-center">
+                                    {game.team.map((member, i) => (
+                                        <div key={i}>{member}</div>
+                                    ))}
+                                </div>
+                                <span className={`text-sm font-bold ${game.result === "WIN" ? "text-blue-500" : "text-red-500"}`}>
+                                    {game.result}!
+                                </span>
                             </>
                         )}
                     </div>

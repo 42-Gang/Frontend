@@ -10,7 +10,7 @@ const ChangeNickNamePopup: React.FC<ChangeNickNamePopupProps> = ({ onClose, onCh
     const [inputValue, setInputValue] = useState("");
 
     const handleChangeNickName = () => {
-            if (inputValue.trim().length > 0 && inputValue.length <= 10) {
+            if (inputValue.trim().length > 0 && inputValue.length <= 8) {
                 onChangeNickName(inputValue);
                 onClose();
             }
@@ -30,8 +30,8 @@ const ChangeNickNamePopup: React.FC<ChangeNickNamePopupProps> = ({ onClose, onCh
                 </span>
                 <input
                 className="border-3 rounded-xl w-[567px] h-[62px] font-['Inter'] text-xl text-center"
-                placeholder="Maximum 6 characters allowed."
-                maxLength={6}
+                placeholder="Maximum 8 characters allowed."
+                maxLength={8}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 />

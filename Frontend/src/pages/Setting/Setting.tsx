@@ -69,7 +69,7 @@ const Setting = () => {
                             <h1
                             className="text-4xl flex justify-center mt-5"
                             >Setting</h1>
-                        <div className="flex items-center w-full mt-[80px] ml-[50px]">
+                        <div className="flex items-center w-full mt-[70px] ml-[50px]">
                             <div className="relative">
                                 {profileImg ? (
                                     <img src={profileImg} className="w-[249px] h-[249px] rounded-full object-cover"/>
@@ -84,11 +84,11 @@ const Setting = () => {
                                     <img src={Button_Change_Profile}/>
                                 </button>
                             </div>
-                            <div className="text-white text-2xl space-y-2 ml-[80px] flex flex-col">
+                            <div className="text-white text-[22px] space-y-1 ml-[60px] flex flex-col">
                                 <div className="flex">
                                     <span className="block">NickName:{nickName}</span>
                                     <button
-                                    className="cursor-pointer ml-[130px] absolute right-[20px]"
+                                    className="cursor-pointer ml-[130px] absolute right-[20px] top-[202px]"
                                     onClick={handleOpenNickNamePopup}
                                     >
                                         <img src={Button_Change_NickName}/>
