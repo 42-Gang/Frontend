@@ -1,16 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import Button_Back from '../../assets/image/Button_Back.svg';
-import Button_GameMode_Off from '../../assets/image/Button_GameMode_Off.svg';
-import Button_GameMode_On from '../../assets/image/Button_GameMode_On.svg';
-import Vs from '../../assets/image/1Vs1.svg';
-import Tournament from '../../assets/image/Tournament.svg';
+import { useNavigate } from 'react-router-dom'
+import ButtonBack from '../../assets/image/ButtonBack.svg'
+import Button_GameMode_Off from '../../assets/image/ButtonGameModeOff.svg'
+import Button_GameMode_On from '../../assets/image/ButtonGameModeOn.svg'
+import Vs from '../../assets/image/1vs1.svg'
+import Tournament from '../../assets/image/Tournament.svg'
 
-const Select_GameMode_Auto = () => {
-    const navigate = useNavigate();
+const Select_GameMode_Custom = () => {
+    const navigate = useNavigate()
 
     const handleBackClick = () => {
-        navigate('/Select_GameOption');
-    };
+        navigate('/Select_GameOption')
+    }
 
     return (
         <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
@@ -18,7 +18,7 @@ const Select_GameMode_Auto = () => {
                 <button>
                     <img
                     className="cursor-pointer ml-[4px] mt-[6px]"
-                    src={Button_Back}
+                    src={ButtonBack}
                     onClick={handleBackClick}
                     />
                 </button>
@@ -60,7 +60,7 @@ const Select_GameMode_Auto = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Select_GameMode_Auto;
+export default Select_GameMode_Custom

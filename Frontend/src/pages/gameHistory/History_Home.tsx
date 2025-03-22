@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ModeSelector from '../../components/GameHistory/ModeSelector';
-import WinLossCounter from '../../components/GameHistory/WinLossCounter';
-import TotalWins from '../../components/GameHistory/TotalWins';
-import GameRecord from '../../components/GameHistory/GameRecord';
-import Button_Back from '../../assets/image/Button_Back.svg';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import ModeSelector from '../../components/gameHistory/ModeSelector'
+import WinLossCounter from '../../components/gameHistory/WinLossCounter'
+import TotalWins from '../../components/gameHistory/TotalWins'
+import GameRecord from '../../components/gameHistory/GameRecord'
+import ButtonBack from '../../assets/image/ButtonBack.svg'
 
 const History_Home = () => {
-    const navigate = useNavigate();
-    const [mode, setMode] = useState<"1vs1" | "Tournament">("1vs1");
+    const navigate = useNavigate()
+    const [mode, setMode] = useState<"1vs1" | "Tournament">("1vs1")
 
     const handleBackClick = () => {
-        navigate('/Home');
+        navigate('/Home')
     };
 
     const gameData1vs1 = {
@@ -32,10 +32,10 @@ const History_Home = () => {
     const gameDataTournament = {
         totalWins: 106,
         history: [
-            { gameMode: "ROUND_4", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "WIN" },
-            { gameMode: "ROUND_8", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
-            { gameMode: "ROUND_16", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
-            { gameMode: "ROUND_2", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
+            { gameMode: "ROUND 4", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "WIN" },
+            { gameMode: "ROUND 8", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
+            { gameMode: "ROUND 16", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
+            { gameMode: "ROUND 2", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
         ],
     };
 
@@ -45,7 +45,7 @@ const History_Home = () => {
                 <button>
                         <img
                         className="cursor-pointer ml-[4px] mt-[6px]"
-                        src={Button_Back}
+                        src={ButtonBack}
                         onClick={handleBackClick}
                         />
                 </button>
@@ -63,7 +63,7 @@ const History_Home = () => {
                 )}
             </div>
         </div>
-    );
+    )
 }
 
-export default History_Home;
+export default History_Home

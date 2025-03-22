@@ -40,7 +40,7 @@ const GameRecord: React.FC<GameRecordProps> = ({ history }) => {
                 ))}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default GameRecord;
+export default GameRecord

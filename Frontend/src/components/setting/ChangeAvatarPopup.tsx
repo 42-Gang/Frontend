@@ -1,20 +1,17 @@
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 
 interface ChangeAvatarPopupProps {
     onClose: () => void
-    onChangeAvatar: (newImg: string | null) => void
+    onChangeAvatar: (newImg: File | null) => void
 }
 
 const ChangeAvatarPopup: React.FC<ChangeAvatarPopupProps> = ({ onClose, onChangeAvatar }) => {
-    const [avatarImg, setAvatarImg] = useState<File | null>(null)
     const fileInputRef = useRef<HTMLInputElement>(null)
 
     const ChangeAvatarImg = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0]
-            setAvatarImg(file)
-            const imageUrl = URL.createObjectURL(file)
-            onChangeAvatar(imageUrl)
+            onChangeAvatar(file)
             onClose()
         }
     }
@@ -22,7 +19,6 @@ const ChangeAvatarPopup: React.FC<ChangeAvatarPopupProps> = ({ onClose, onChange
         fileInputRef.current?.click()
     }
     const DeleteAvatarImg = () => {
-        setAvatarImg(null)
         onChangeAvatar(null)
         onClose()
     }

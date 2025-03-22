@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ButtonCloseNicknamePopup from '../../../assets/image/ButtonCloseNicknamePopUp.svg'
+import ButtonCloseNicknamePopup from '../../assets/image/ButtonCloseNicknamePopup.svg'
 
 interface ChangeNicknamePopupProps {
     onClose: () => void

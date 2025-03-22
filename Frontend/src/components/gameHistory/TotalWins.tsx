@@ -1,5 +1,5 @@
 interface TotalWinsProps {
-    totalWins: number;
+    totalWins: number
 }
 
 const TotalWins: React.FC<TotalWinsProps> = ({ totalWins }) => {
@@ -16,7 +16,7 @@ const TotalWins: React.FC<TotalWinsProps> = ({ totalWins }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default TotalWins;
+export default TotalWins

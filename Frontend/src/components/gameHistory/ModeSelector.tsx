@@ -1,9 +1,9 @@
-import Button_History_Off from '../../assets/image/Button_History_Off.svg';
-import Button_History_On from '../../assets/image/Button_History_On.svg';
+import Button_History_Off from '../../assets/image/ButtonHistoryOff.svg'
+import Button_History_On from '../../assets/image/ButtonHistoryOn.svg'
 
 interface ModeSelectorProps {
-    mode: "1vs1" | "Tournament";
-    setMode: (mode: "1vs1" | "Tournament") => void;
+    mode: "1vs1" | "Tournament"
+    setMode: (mode: "1vs1" | "Tournament") => void
 }
 
 const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, setMode }) => {
@@ -33,7 +33,7 @@ const ModeSelector: React.FC<ModeSelectorProps> = ({ mode, setMode }) => {
                 </button>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ModeSelector;
+export default ModeSelector

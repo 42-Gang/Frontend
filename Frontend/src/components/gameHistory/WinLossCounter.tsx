@@ -1,6 +1,6 @@
 interface WinLossCounterProps {
-    wins: number;
-    losses: number;
+    wins: number
+    losses: number
 };
 
 const WinLossCounter: React.FC<WinLossCounterProps> = ({ wins, losses }) => {
@@ -23,7 +23,7 @@ const WinLossCounter: React.FC<WinLossCounterProps> = ({ wins, losses }) => {
                     </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default WinLossCounter;
+export default WinLossCounter
