@@ -1,16 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import Selection from '../../assets/image/Selection.svg';
+import { useNavigate } from 'react-router-dom'
+import Selection from '../../assets/image/Selection.svg'
 
 const Login = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleSignUpClick = () => {
-        navigate('/Register');
-    };
+        navigate('/Register')
+    }
 
     const handleSignInClick = () => {
-        navigate('/Home');
-    };
+        navigate('/Home')
+    }
 
     return (
         <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
@@ -48,8 +48,8 @@ const Login = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
 
-export default Login;
+export default Login

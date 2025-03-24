@@ -1,21 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import Button_GameOption_Off from '../../assets/image/Button_GameOption_Off.svg';
-import Bullet from '../../assets/image/Bullet.svg';
-import Button_GameOption_On from '../../assets/image/Button_GameOption_On.svg';
+import { useNavigate } from 'react-router-dom'
+import Button_GameOption_Off from '../../assets/image/ButtonGameOptionOff.svg'
+import Bullet from '../../assets/image/Bullet.svg'
+import Button_GameOption_On from '../../assets/image/ButtonGameOptionOn.svg'
 
 const Select_GameOption = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleBackClick = () => {
-        navigate('/Home');
-    };
+        navigate('/Home')
+    }
 
     const handleAutoClick = () => {
-        navigate('/Select_GameMode_Auto');
-    };
+        navigate('/Select_GameMode_Auto')
+    }
 
     const handleCustomClick = () => {
-        navigate('/Select_GameMode_Custom');
+        navigate('/Select_GameMode_Custom')
     }
 
     return (
@@ -83,7 +83,7 @@ const Select_GameOption = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Select_GameOption;
+export default Select_GameOption

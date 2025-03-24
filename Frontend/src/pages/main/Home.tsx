@@ -1,22 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import Gun from '../../assets/image/Gun.svg';
-import Selection from '../../assets/image/Selection.svg';
-import History_Home from '../GameHistory/History_Home';
+import { useNavigate } from 'react-router-dom'
+import Gun from '../../assets/image/Gun.svg'
+import Selection from '../../assets/image/Selection.svg'
 
 const Home = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleStartGameClick = () => {
-        navigate('/Select_GameOption');
-    };
+        navigate('/Select_GameOption')
+    }
 
     const handleSettingClick = () => {
-        navigate('/Setting');
-    };
+        navigate('/Setting')
+    }
 
     const handleGameHistoryClick = () => {
-        navigate('/History_Home');
-    };
+        navigate('/History_Home')
+    }
 
 
     return (
@@ -26,9 +25,9 @@ const Home = () => {
                 <div className="flex justify-center">
                     <img src={Gun} className="mt-[-40px]"/>
                     <h1 className="MainTitleColor font-['SuperPixel'] sm:text-6xl mt-3 text-center">GANG</h1>
-                    <img src={Gun} className="flip-image mt-[-30px]"/>
+                    <img src={Gun} className="flip-image mt-[-40px]"/>
                 </div>
-                <div className="flex flex-col items-center text-[27px] space-y-1 mt-[-128px] ml-[-7px]">
+                <div className="flex flex-col items-center text-[27px] space-y-1 mt-[-117px] ml-[-7px]">
                     <button
                     className="w-[180px] text-white font-['StWinterPixel24BoldDemoBold'] relative group flex items-center justify-start space-x-2 ml-[-20px] cursor-pointer"
                     onClick={handleStartGameClick}
@@ -65,7 +64,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Home;
+export default Home

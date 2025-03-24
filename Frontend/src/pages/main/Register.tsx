@@ -1,55 +1,55 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button_Back from '../../assets/image/Button_Back.svg';
-import Button_verify_Off from "../../assets/image/Button_verify_Off.svg";
-import Button_verify_On from "../../assets/image/Button_verify_On.svg";
-import Selection from '../../assets/image/Selection.svg';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import ButtonBack from '../../assets/image/ButtonBack.svg'
+import Button_verify_Off from "../../assets/image/ButtonVerifyOff.svg"
+import Button_verify_On from "../../assets/image/ButtonVerifyOn.svg"
+import Selection from '../../assets/image/Selection.svg'
 
 const Register = () => {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [verifyCode, setVerifyCode] = useState('');
-    // const [isEmailValid, setIsEmailValid] = useState(false);
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [nickName, setNickName] = useState('');
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [verifyCode, setVerifyCode] = useState('')
+    // const [isEmailValid, setIsEmailValid] = useState(false)
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [nickName, setNickName] = useState('')
 
 // Page Handler
     const handleRegisterClick = () => {
-        navigate('/');
-    };
+        navigate('/')
+    }
 
     const handleBackClick = () => {
-        navigate('/');
-    };
+        navigate('/')
+    }
 
 // Email Handler
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputEmail = e.target.value;
-        setEmail(inputEmail);
-    };
+        const inputEmail = e.target.value
+        setEmail(inputEmail)
+    }
 
     const handleVerifyCode = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputVerifyCode = e.target.value;
-        setVerifyCode(inputVerifyCode);
-    };
+        const inputVerifyCode = e.target.value
+        setVerifyCode(inputVerifyCode)
+    }
 
 // Password Handler
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputPassword = e.target.value;
-        setPassword(inputPassword);
-    };
+        const inputPassword = e.target.value
+        setPassword(inputPassword)
+    }
 
     const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputConfirmPassword = e.target.value;
-        setConfirmPassword(inputConfirmPassword);
-    };
+        const inputConfirmPassword = e.target.value
+        setConfirmPassword(inputConfirmPassword)
+    }
 
 // Nickname Handler
     const handleNickName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputNickName = e.target.value;
-        setNickName(inputNickName);
-    };
+        const inputNickName = e.target.value
+        setNickName(inputNickName)
+    }
 
     return (
         <div className="flex justify-center items-center w-[800px] h-[600px] bg-black mx-auto">
@@ -57,7 +57,7 @@ const Register = () => {
                 <button>
                         <img
                         className="cursor-pointer ml-[4px] mt-[6px]"
-                        src={Button_Back}
+                        src={ButtonBack}
                         onClick={handleBackClick}
                         />
                 </button>
@@ -133,7 +133,7 @@ const Register = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Register;
+export default Register

@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* 화면 중앙 정렬 */
-    background-color: black;
+    background-color: white;
   }
 
   * {
