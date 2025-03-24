@@ -205,6 +205,27 @@ export const FriendListContainer = styled.div`
   gap: 10px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 0;
+    min-height: 30px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+  }
 `;
 
 export const ToastStyle = {
