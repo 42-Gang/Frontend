@@ -16,7 +16,7 @@ const Setting = () => {
 	const [isConfirmLogoutPopupOpen, setIsConfirmLogoutPopupOpen] = useState(false)
 
 	const example1 = {
-		Nickname: "Jonessss",
+		Nickname: "Jone",
 		Win: 919,
 		Lose: 20,
 		Tournament: 545
@@ -46,11 +46,14 @@ const Setting = () => {
 	return (
 		<div className="bg-black w-[800px] h-[600px]">
 			{/* 뒤로 가기 버튼 */}
-			<button className="font-['Sixtyfour-Regular'] text-white text-2xl">
+			<button
+				className="font-['Sixtyfour-Regular'] text-white text-2xl"
+				onClick={handleBackClick}
+			>
 				<img
 					className="absolute top-[2px] left-[2px] cursor-pointer"
 					src={ButtonBack}
-					onClick={handleBackClick}
+					alt="Back Button"
 				/>
 			</button>
 			{/* 페이지 이름 */}
@@ -75,7 +78,10 @@ const Setting = () => {
 						className="absolute bottom-[1px] left-[160px]"
 						onClick={handleOpenChangeAvatarPopup}
 					>
-						<img src={ButtonChangeAvatarImg}/>
+						<img
+							src={ButtonChangeAvatarImg}
+							alt="Change Avatar Button"
+						/>
 					</button>
 				</div>
 				{/* 유저 정보 영역 */}
@@ -88,7 +94,10 @@ const Setting = () => {
 						className="cursor-pointer absolute right-[25px]"
 						onClick={handleOpenChangeNicknamePopup}
 					>
-						<img src={ButtonChangeNickname}/>
+						<img
+							src={ButtonChangeNickname}
+							alt="Change Nickname Button"
+						/>
 					</button>
 					</div>
 					{/* 1 VS 1 우승 횟수 */}
