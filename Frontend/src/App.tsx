@@ -10,7 +10,6 @@ import Select_GameMode_Auto from "./pages/gameSelect/Select_GameMode_Auto.tsx";
 import Select_GameMode_Custom from "./pages/gameSelect/Select_GameMode_Custom.tsx";
 import Setting from "./pages/setting/Setting.tsx";
 import History_Home from "./pages/gameHistory/History_Home.tsx";
-// import History_1vs1 from "./pages/GameHistory/History_1vs1.tsx";
 import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
 import Invitation from "./pages/Tournament/Invitation.tsx"
