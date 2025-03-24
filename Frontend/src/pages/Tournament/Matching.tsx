@@ -10,6 +10,9 @@ import {
   UserProfile,
   UserImage,
   UserName,
+  LineWrapper,
+  VerticalLine,
+  HorizontalLine,
 } from "./Matching";
 
 const mockUsers = [
@@ -29,14 +32,22 @@ const Matching = () => {
   return (
     <Wrapper>
       <ProfileOverlay>
-        <UserGrid>
-          {mockUsers.map((user) => (
-            <UserProfile key={user.id} isReady={isReady}>
-              <UserImage src={user.profileImage} alt={user.name} />
-              <UserName>{user.name}</UserName>
-            </UserProfile>
-          ))}
-        </UserGrid>
+        <LineWrapper>
+          {/* 왼쪽 세로선 + 가로선 */}
+          <VerticalLine left="46px" />
+          <HorizontalLine left="46px" />
+          {/* 오른쪽 세로선 + 가로선 */}
+          <VerticalLine left="420px" />
+          <HorizontalLine left="335px" />{" "}
+          <UserGrid>
+            {mockUsers.map((user) => (
+              <UserProfile key={user.id} isReady={isReady}>
+                <UserImage src={user.profileImage} alt={user.name} />
+                <UserName>{user.name}</UserName>
+              </UserProfile>
+            ))}
+          </UserGrid>
+        </LineWrapper>
       </ProfileOverlay>
       <Tournament onReadyClick={toggleReadyState} />
     </Wrapper>
