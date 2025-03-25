@@ -14,6 +14,7 @@ import {
 
 interface TournamentProps {
   onReadyClick?: () => void;
+  customButton?: React.ReactNode;
 }
 
 // 예제 채팅 데이터 (나중에 API로 대체)
@@ -22,7 +23,10 @@ const mockMessages = [
   { id: 2, user: "Pong", message: "오키" },
 ];
 
-const Tournament: React.FC<TournamentProps> = ({ onReadyClick }) => {
+const Tournament: React.FC<TournamentProps> = ({
+  onReadyClick,
+  customButton,
+}) => {
   const [messages, setMessages] = useState(mockMessages);
   const [inputValue, setInputValue] = useState("");
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -48,7 +52,8 @@ const Tournament: React.FC<TournamentProps> = ({ onReadyClick }) => {
       <GlobalStyle />
       <TournamentContainer>
         <TournamentTitle>Tournament</TournamentTitle>
-        <ReadyButton onClick={onReadyClick} />
+        {/* ✅ 커스텀 버튼이 전달되면 사용, 아니면 기본 ReadyButton */}
+        {customButton ?? <ReadyButton onClick={onReadyClick} />}
       </TournamentContainer>
       <ChatContainer>
         <ChatHeader>Chat</ChatHeader>
