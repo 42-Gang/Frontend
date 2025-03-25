@@ -1,5 +1,12 @@
 import styled, { css, createGlobalStyle } from "styled-components";
 
+export const LINE_POSITION = {
+  LEFT_VERTICAL: "46px",
+  RIGHT_VERTICAL: "420px",
+  LEFT_HORIZONTAL: "46px",
+  RIGHT_HORIZONTAL: "335px",
+};
+
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
