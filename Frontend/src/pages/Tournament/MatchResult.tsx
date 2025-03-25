@@ -42,8 +42,8 @@ const mockWinners = [
 ];
 
 // 최종 승자 임시 api (요소 위치 조절)
-// const finalWinner = { id: 2, name: "DING", profileImage: BasicProfile2 };
-const finalWinner = { id: 1, name: "PONG", profileImage: BasicProfile1 };
+const finalWinner = { id: 2, name: "DING", profileImage: BasicProfile2 };
+// const finalWinner = { id: 1, name: "PONG", profileImage: BasicProfile1 };
 
 const MatchResult = () => {
   const navigate = useNavigate();

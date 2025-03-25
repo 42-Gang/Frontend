@@ -13,7 +13,7 @@ export const CongratsText = styled.div`
 export const WinnerLabel = styled.div<{ isLeft: boolean }>`
   position: absolute;
   top: 90px;
-  left: ${({ isLeft }) => (isLeft ? "125px" : "260px")};
+  left: ${({ isLeft }) => (isLeft ? "128px" : "257px")};
   color: #ffe347;
   font-size: 14px;
   font-weight: bold;
@@ -23,14 +23,14 @@ export const WinnerLabel = styled.div<{ isLeft: boolean }>`
 
 export const FinalWinnerWrapper = styled.div<{ isLeft: boolean }>`
   position: absolute;
-  top: ${({ isLeft }) => (isLeft ? "118px" : "118px")}; // Ding 위로 이동
-  left: ${({ isLeft }) => (isLeft ? "138px" : "265px")}; // 그대로 유지
+  top: ${({ isLeft }) => (isLeft ? "118px" : "118px")};
+  left: ${({ isLeft }) => (isLeft ? "138px" : "265px")};
 `;
 
 export const OpponentWrapper = styled.div<{ isLeft: boolean }>`
   position: absolute;
-  top: ${({ isLeft }) => (isLeft ? "118px" : "118px")}; // Pong 아래로 이동
-  left: ${({ isLeft }) => (isLeft ? "260px" : "140px")}; // Pong 오른쪽으로 이동
+  top: ${({ isLeft }) => (isLeft ? "118px" : "118px")};
+  left: ${({ isLeft }) => (isLeft ? "260px" : "140px")};
 `;
 
 export const ExitButtonWrapper = styled.button`
