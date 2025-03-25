@@ -84,3 +84,22 @@ export const HorizontalLine = styled.div<{ left: string }>`
   background-color: white;
   z-index: 5;
 `;
+
+export const WinnerGrid = styled.div`
+  position: absolute;
+  top: 118px;
+  left: 118px;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  gap: 0 30px;
+`;
+
+export const VsText = styled.div`
+  position: absolute;
+  top: 145px;
+  left: 215px;
+  color: white;
+  font-size: 18px;
+  font-family: "Sixtyfour", sans-serif;
+  z-index: 10;
+`;
