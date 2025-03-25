@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Tournament from "./Tournament.tsx";
+import { LINE_POSITION } from "./Matching.ts";
 import BasicProfile1 from "../../assets/image/BasicProfile1.png";
 import BasicProfile2 from "../../assets/image/BasicProfile2.png";
 
@@ -82,13 +83,12 @@ const Matching = () => {
             ))}
           </WinnerGrid>
           <VsText>VS</VsText>
-
-          {/* 대진표 구분선 */}
-          <VerticalLine left="46px" />
-          <HorizontalLine left="46px" />
-          <VerticalLine left="420px" />
-          <HorizontalLine left="335px" />
-
+          {/* 대진표 구분선 - 왼쪽 */}
+          <VerticalLine left={LINE_POSITION.LEFT_VERTICAL} />
+          <HorizontalLine left={LINE_POSITION.LEFT_HORIZONTAL} />
+          {/* 대진표 구분선 -  */}
+          <VerticalLine left={LINE_POSITION.RIGHT_VERTICAL} />
+          <HorizontalLine left={LINE_POSITION.RIGHT_HORIZONTAL} />
           <UserGrid>
             {mockUsers.map((user) => (
               <UserProfile
