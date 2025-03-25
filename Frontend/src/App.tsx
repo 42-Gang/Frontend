@@ -14,6 +14,7 @@ import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
 import Invitation from "./pages/Tournament/Invitation.tsx";
 import Matching from "./pages/Tournament/Matching.tsx";
+import MatchResult from "./pages/Tournament/MatchResult.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/Waiting" element={<Waiting />} />
           <Route path="/Invitation" element={<Invitation />} />
           <Route path="/TournamentMain" element={<Matching />} />
+          <Route path="/MatchResult" element={<MatchResult />} />
         </Routes>
       </Router>
     </>

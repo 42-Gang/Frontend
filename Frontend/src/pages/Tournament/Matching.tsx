@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tournament from "./Tournament.tsx";
 import { LINE_POSITION } from "./Matching.ts";
 import BasicProfile1 from "../../assets/image/BasicProfile1.png";
@@ -18,7 +18,6 @@ import {
   VsText,
 } from "./Matching";
 
-// 임시 유저 정보
 const mockUsers = [
   { id: 1, name: "PONG", profileImage: BasicProfile1 },
   { id: 2, name: "DING", profileImage: BasicProfile2 },
@@ -27,16 +26,48 @@ const mockUsers = [
 ];
 
 const mockWinners = [
-  { id: 1, name: "PING", profileImage: BasicProfile1 },
+  { id: 3, name: "PING", profileImage: BasicProfile1 },
   { id: 2, name: "DING", profileImage: BasicProfile2 },
 ];
 
-const Matching = () => {
-  const [isReady, setIsReady] = useState(false);
+// 현재 로그인된 사용자라고 가정 (예: Ping)
+const currentUserId = 3;
 
-  const toggleReadyState = () => {
-    setIsReady((prev) => !prev);
+const Matching = () => {
+  const [readyStates, setReadyStates] = useState<{ [userId: number]: boolean }>(
+    {}
+  );
+
+  const handleReadyClick = () => {
+    const mockSendPayload = {
+      action: "send",
+      category: "game",
+      resource: "ready",
+      data: {
+        tournament_id: 135,
+        match_id: 737,
+        user_id: currentUserId,
+      },
+    };
+
+    // 실제 WebSocket이 아닌 mock 수신 처리
+    handleReceiveReady(mockSendPayload.data);
   };
+
+  const handleReceiveReady = (data: { user_id: number }) => {
+    setReadyStates((prev) => ({
+      ...prev,
+      [data.user_id]: true,
+    }));
+  };
+
+  // mock 수신 테스트 (예: 4초 뒤에 Ding 준비됨)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      handleReceiveReady({ user_id: 2 });
+    }, 4000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <Wrapper>
@@ -45,7 +76,7 @@ const Matching = () => {
           {/* 중앙 상단 승자 이미지 */}
           <WinnerGrid>
             {mockWinners.map((user) => (
-              <UserProfile key={user.id} isReady={isReady}>
+              <UserProfile key={user.id} isReady={!!readyStates[user.id]}>
                 <UserImage src={user.profileImage} alt={user.name} />
                 <UserName>{user.name}</UserName>
               </UserProfile>
@@ -55,11 +86,15 @@ const Matching = () => {
           {/* 대진표 구분선 - 왼쪽 */}
           <VerticalLine left={LINE_POSITION.LEFT_VERTICAL} />
           <HorizontalLine left={LINE_POSITION.LEFT_HORIZONTAL} />
+          {/* 대진표 구분선 -  */}
           <VerticalLine left={LINE_POSITION.RIGHT_VERTICAL} />
           <HorizontalLine left={LINE_POSITION.RIGHT_HORIZONTAL} />
           <UserGrid>
             {mockUsers.map((user) => (
-              <UserProfile key={user.id} isReady={isReady}>
+              <UserProfile
+                key={user.id}
+                isReady={false} // 4강 유저는 항상 false (테두리 변경 비활성화)
+              >
                 <UserImage src={user.profileImage} alt={user.name} />
                 <UserName>{user.name}</UserName>
               </UserProfile>
@@ -67,7 +102,7 @@ const Matching = () => {
           </UserGrid>
         </LineWrapper>
       </ProfileOverlay>
-      <Tournament onReadyClick={toggleReadyState} />
+      <Tournament onReadyClick={handleReadyClick} />
     </Wrapper>
   );
 };
