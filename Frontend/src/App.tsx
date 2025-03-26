@@ -13,6 +13,7 @@ import History_Home from "./pages/gameHistory/History_Home.tsx";
 import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
 import Invitation from "./pages/Tournament/Invitation.tsx"
+import GameScreen from "./pages/game/GameScreen.tsx";
 
 const App = () => {
 	useEffect(() => {
@@ -50,7 +51,8 @@ const App = () => {
 			{/* 사용자 관련 유틸 */}
 			<Route path="/Setting" element={<Setting />} />
 			<Route path="/History_Home" element={<History_Home />} />
-			{/* <Route path="/History_1vs1" element={<History_1vs1 />} /> */}
+			{/* 게임 화면 */}
+			<Route path="/GameScreen" element={<GameScreen />} />
 			{/* 토너먼트 */}
 			<Route path="/Tournament" element={<Tournament />} />
 			<Route path="/Waiting" element={<Waiting />} />
