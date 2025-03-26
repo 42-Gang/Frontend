@@ -14,53 +14,58 @@ import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
 import Invitation from "./pages/Tournament/Invitation.tsx"
 import GameScreen from "./pages/game/GameScreen.tsx";
+import Matching from "./pages/Tournament/Matching.tsx";
+import MatchResult from "./pages/Tournament/MatchResult.tsx";
 
 const App = () => {
-	useEffect(() => {
+  useEffect(() => {
     const lockWindowSize = () => {
-	window.resizeTo(800, 600);
+      window.resizeTo(800, 600);
     };
 
     window.addEventListener("resize", lockWindowSize);
     lockWindowSize(); // 실행 시 즉시 크기 고정
 
     return () => {
-		window.removeEventListener("resize", lockWindowSize);
+      window.removeEventListener("resize", lockWindowSize);
     };
-	}, []);
+  }, []);
 
-	return (
+  return (
     <>
-	<GlobalStyle />
-	<Router>
-		<Routes>
-			{/* 메인 홈페이지 */}
-			<Route path="/" element={<Login />} />
-			<Route path="/Register" element={<Register />} />
-			<Route path="/Home" element={<Home />} />
-			{/* 게임 선택 홈페이지 */}
-			<Route path="/Select_GameOption" element={<Select_GameOption />} />
-			<Route
-				path="/Select_GameMode_Auto"
-				element={<Select_GameMode_Auto />}
-			/>
-			<Route
-				path="/Select_GameMode_Custom"
-				element={<Select_GameMode_Custom />}
-			/>
-			{/* 사용자 관련 유틸 */}
-			<Route path="/Setting" element={<Setting />} />
-			<Route path="/History_Home" element={<History_Home />} />
-			{/* 게임 화면 */}
-			<Route path="/GameScreen" element={<GameScreen />} />
-			{/* 토너먼트 */}
-			<Route path="/Tournament" element={<Tournament />} />
-			<Route path="/Waiting" element={<Waiting />} />
-			<Route path="/Invitation" element={<Invitation />} />
-		</Routes>
-	</Router>
+      <GlobalStyle />
+      <Router>
+        <Routes>
+          {/* 메인 홈페이지 */}
+          <Route path="/" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Home" element={<Home />} />
+          {/* 게임 선택 홈페이지 */}
+          <Route path="/Select_GameOption" element={<Select_GameOption />} />
+          <Route
+            path="/Select_GameMode_Auto"
+            element={<Select_GameMode_Auto />}
+          />
+          <Route
+            path="/Select_GameMode_Custom"
+            element={<Select_GameMode_Custom />}
+          />
+          {/* 사용자 관련 유틸 */}
+          <Route path="/Setting" element={<Setting />} />
+          <Route path="/History_Home" element={<History_Home />} />
+          {/* <Route path="/History_1vs1" element={<History_1vs1 />} /> */}
+          {/* 게임 화면 */}
+			    <Route path="/GameScreen" element={<GameScreen />} />
+          {/* 토너먼트 */}
+          <Route path="/Tournament" element={<Tournament />} />
+          <Route path="/Waiting" element={<Waiting />} />
+          <Route path="/Invitation" element={<Invitation />} />
+          <Route path="/TournamentMain" element={<Matching />} />
+          <Route path="/MatchResult" element={<MatchResult />} />
+        </Routes>
+      </Router>
     </>
-	);
+  );
 };
 
 export default App;
