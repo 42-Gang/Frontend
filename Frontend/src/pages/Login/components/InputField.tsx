@@ -7,7 +7,7 @@ interface InputFieldProps {
 const InputField = ({ label, type, width }: InputFieldProps) => {
 	return (
 		<div className="text-white font-['QuinqueFive'] text-[15px] flex gap-[8px]">
-			<p>{label}</p>
+			<p className="flex-shrink-0 w-[110px] text-right">{label}:</p>
 			<input style={{ width }} type={type}/>
 		</div>
 	)
