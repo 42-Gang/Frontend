@@ -33,9 +33,9 @@ const History_Home = () => {
 		totalWins: 106,
 		history: [
 			{ gameMode: "ROUND 4", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "WIN" },
-			{ gameMode: "ROUND 8", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
-			{ gameMode: "ROUND 16", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
-			{ gameMode: "ROUND 2", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
+			{ gameMode: "ROUND 4", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
+			{ gameMode: "ROUND 4", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
+			{ gameMode: "ROUND 4", team: ["Jungslee", "Ping", "Pong", "Inryu"], result: "LOSE" },
 		],
 	};
 

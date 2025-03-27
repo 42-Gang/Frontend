@@ -12,7 +12,8 @@ import Setting from "./pages/setting/Setting.tsx";
 import History_Home from "./pages/gameHistory/History_Home.tsx";
 import Tournament from "./pages/Tournament/Tournament.tsx";
 import Waiting from "./pages/Tournament/Waiting.tsx";
-import Invitation from "./pages/Tournament/Invitation.tsx";
+import Invitation from "./pages/Tournament/Invitation.tsx"
+import GameScreen from "./pages/game/GameScreen.tsx";
 import Matching from "./pages/Tournament/Matching.tsx";
 import MatchResult from "./pages/Tournament/MatchResult.tsx";
 
@@ -53,6 +54,8 @@ const App = () => {
           <Route path="/Setting" element={<Setting />} />
           <Route path="/History_Home" element={<History_Home />} />
           {/* <Route path="/History_1vs1" element={<History_1vs1 />} /> */}
+          {/* 게임 화면 */}
+			    <Route path="/GameScreen" element={<GameScreen />} />
           {/* 토너먼트 */}
           <Route path="/Tournament" element={<Tournament />} />
           <Route path="/Waiting" element={<Waiting />} />
