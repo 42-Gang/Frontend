@@ -7,6 +7,7 @@ import GlobalStyle from "./styles/GlobalStyles"
 import Login from "./pages/Login/Login.tsx"
 import Register from "./pages/Register/Register.tsx"
 import Home from "./pages/Home/Home.tsx"
+import GameOptionSelect from "./pages/GameOptionSelect/GameOptionSelect.tsx"
 
 {/* 예은 파트 */}
 import Tournament from "./pages/Tournament/Tournament.tsx"
@@ -38,6 +39,7 @@ const App = () => {
 				<Route path="/" element={<Login/>}/>
 				<Route path="/Register" element={<Register/>}/>
 				<Route path="/Home" element={<Home/>}/>
+				<Route path="/GameOptionSelect" element={<GameOptionSelect/>}/>
 				{/* 토너먼트 */}
 				<Route path="/Tournament" element={<Tournament />} />
 				<Route path="/Waiting" element={<Waiting />} />

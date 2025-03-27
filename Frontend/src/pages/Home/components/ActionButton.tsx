@@ -4,24 +4,24 @@ import SelectHighlight from '../../../assets/image/SelectHighlight.svg'
 const ActionButton = () => {
 	const navigate = useNavigate()
 
+	const buttons = [
+		{ label: "START GAME", onClick: () => navigate('/GameOptionSelect') },
+		{ label: "GAME HISTORY", onClick: () => navigate('/GameHistory') },
+		{ label: "FRIEND", onClick: () => navigate('/FriendList') },
+		{ label: "SETTING", onClick: () => navigate('/Setting') },
+	]
+
+	const buttonClass ="cursor-pointer flex gap-[10px] -ml-[30px] group"
+	const imgClass = "opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+
 	return (
 		<div className="text-white font-['StWinterPixel'] text-[28px] flex flex-col">
-			<button className="cursor-pointer flex gap-[10px] -ml-[30px] group">
-				<img src={SelectHighlight} alt="SelectHighlight" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-				START GAME
-			</button>
-			<button className="cursor-pointer flex gap-[10px] -ml-[30px] group">
-				<img src={SelectHighlight} alt="SelectHighlight" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-				GAME HISTORY
-			</button>
-			<button className="cursor-pointer flex gap-[10px] -ml-[30px] group">
-				<img src={SelectHighlight} alt="SelectHighlight" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-				FRIEND
-			</button>
-			<button className="cursor-pointer flex gap-[10px] -ml-[30px] group">
-				<img src={SelectHighlight} alt="SelectHighlight" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-				SETTING
-			</button>
+			{buttons.map(({ label, onClick }) => (
+				<button key={label} className={buttonClass} onClick={onClick}>
+					<img src={SelectHighlight} alt="SelectHighlight" className={imgClass}/>
+					{label}
+				</button>
+			))}
 		</div>
 	)
 }
