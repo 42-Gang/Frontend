@@ -8,6 +8,8 @@ import Login from "./pages/Login/Login.tsx"
 import Register from "./pages/Register/Register.tsx"
 import Home from "./pages/Home/Home.tsx"
 import GameOptionSelect from "./pages/GameOptionSelect/GameOptionSelect.tsx"
+import AutoGameModeSelect from "./pages/GameModeSelect/AutoGameModeSelect.tsx"
+import CustomGameModeSelect from "./pages/GameModeSelect/CustomGameModeSelect.tsx"
 
 {/* 예은 파트 */}
 import Tournament from "./pages/Tournament/Tournament.tsx"
@@ -35,11 +37,18 @@ const App = () => {
 		<GlobalStyle />
 		<Router>
 			<Routes>
-				{/* 로그인 */}
+				{/* 로그인 페이지 */}
 				<Route path="/" element={<Login/>}/>
+				{/* 회원가입 페이지 */}
 				<Route path="/Register" element={<Register/>}/>
+				{/* 메인 홈페이지 */}
 				<Route path="/Home" element={<Home/>}/>
+				{/* 게임 옵션 선택 페이지 */}
 				<Route path="/GameOptionSelect" element={<GameOptionSelect/>}/>
+				{/* 오토 게임 모드 선택 페이지 */}
+				<Route path="/AutoGameModeSelect" element={<AutoGameModeSelect/>}/>
+				{/* 커스텀 게임 모드 선택 페이지 */}
+				<Route path="/CustomGameModeSelect" element={<CustomGameModeSelect/>}/>
 				{/* 토너먼트 */}
 				<Route path="/Tournament" element={<Tournament />} />
 				<Route path="/Waiting" element={<Waiting />} />

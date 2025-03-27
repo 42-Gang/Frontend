@@ -5,7 +5,7 @@ const Cancel = () => {
 	const navigate = useNavigate()
 
 	const CloseRegister = () => {
-		navigate('/');
+		navigate('/GameOptionSelect');
 	}
 
 	const buttonClass = "cursor-pointer opacity-60 hover:opacity-100 transition-opacity duration-300"
