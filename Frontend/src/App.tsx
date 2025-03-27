@@ -6,6 +6,7 @@ import GlobalStyle from "./styles/GlobalStyles"
 {/* 혜주 파트 */}
 import Login from "./pages/Login/Login.tsx"
 import Register from "./pages/Register/Register.tsx"
+import Home from "./pages/Home/Home.tsx"
 
 {/* 예은 파트 */}
 import Tournament from "./pages/Tournament/Tournament.tsx"
@@ -36,6 +37,7 @@ const App = () => {
 				{/* 로그인 */}
 				<Route path="/" element={<Login/>}/>
 				<Route path="/Register" element={<Register/>}/>
+				<Route path="/Home" element={<Home/>}/>
 				{/* 토너먼트 */}
 				<Route path="/Tournament" element={<Tournament />} />
 				<Route path="/Waiting" element={<Waiting />} />
