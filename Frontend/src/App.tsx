@@ -1,71 +1,51 @@
-import "./index.css";
-import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GlobalStyle from "./styles/GlobalStyles";
-import Login from "./pages/main/Login.tsx";
-import Register from "./pages/main/Register.tsx";
-import Home from "./pages/main/Home.tsx";
-import Select_GameOption from "./pages/gameSelect/Select_GameOption.tsx";
-import Select_GameMode_Auto from "./pages/gameSelect/Select_GameMode_Auto.tsx";
-import Select_GameMode_Custom from "./pages/gameSelect/Select_GameMode_Custom.tsx";
-import Setting from "./pages/setting/Setting.tsx";
-import History_Home from "./pages/gameHistory/History_Home.tsx";
-import Tournament from "./pages/Tournament/Tournament.tsx";
-import Waiting from "./pages/Tournament/Waiting.tsx";
+import "./index.css"
+import { useEffect } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import GlobalStyle from "./styles/GlobalStyles"
+
+{/* 혜주 파트 */}
+import Login from "./pages/Login/Login.tsx"
+import Register from "./pages/Register/Register.tsx"
+
+{/* 예은 파트 */}
+import Tournament from "./pages/Tournament/Tournament.tsx"
+import Waiting from "./pages/Tournament/Waiting.tsx"
 import Invitation from "./pages/Tournament/Invitation.tsx"
-import GameScreen from "./pages/game/GameScreen.tsx";
-import Matching from "./pages/Tournament/Matching.tsx";
-import MatchResult from "./pages/Tournament/MatchResult.tsx";
+import Matching from "./pages/Tournament/Matching.tsx"
+import MatchResult from "./pages/Tournament/MatchResult.tsx"
 
 const App = () => {
-  useEffect(() => {
-    const lockWindowSize = () => {
-      window.resizeTo(800, 600);
-    };
+	useEffect(() => {
+		const lockWindowSize = () => {
+		window.resizeTo(800, 600)
+	}
 
-    window.addEventListener("resize", lockWindowSize);
-    lockWindowSize(); // 실행 시 즉시 크기 고정
+	window.addEventListener("resize", lockWindowSize)
+	lockWindowSize() // 실행 시 즉시 크기 고정
 
-    return () => {
-      window.removeEventListener("resize", lockWindowSize);
-    };
-  }, []);
+	return () => {
+		window.removeEventListener("resize", lockWindowSize)
+	}
+	}, [])
 
-  return (
-    <>
-      <GlobalStyle />
-      <Router>
-        <Routes>
-          {/* 메인 홈페이지 */}
-          <Route path="/" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/Home" element={<Home />} />
-          {/* 게임 선택 홈페이지 */}
-          <Route path="/Select_GameOption" element={<Select_GameOption />} />
-          <Route
-            path="/Select_GameMode_Auto"
-            element={<Select_GameMode_Auto />}
-          />
-          <Route
-            path="/Select_GameMode_Custom"
-            element={<Select_GameMode_Custom />}
-          />
-          {/* 사용자 관련 유틸 */}
-          <Route path="/Setting" element={<Setting />} />
-          <Route path="/History_Home" element={<History_Home />} />
-          {/* <Route path="/History_1vs1" element={<History_1vs1 />} /> */}
-          {/* 게임 화면 */}
-			    <Route path="/GameScreen" element={<GameScreen />} />
-          {/* 토너먼트 */}
-          <Route path="/Tournament" element={<Tournament />} />
-          <Route path="/Waiting" element={<Waiting />} />
-          <Route path="/Invitation" element={<Invitation />} />
-          <Route path="/TournamentMain" element={<Matching />} />
-          <Route path="/MatchResult" element={<MatchResult />} />
-        </Routes>
-      </Router>
-    </>
-  );
-};
+	return (
+	<>
+		<GlobalStyle />
+		<Router>
+			<Routes>
+				{/* 로그인 */}
+				<Route path="/" element={<Login/>}/>
+				<Route path="/Register" element={<Register/>}/>
+				{/* 토너먼트 */}
+				<Route path="/Tournament" element={<Tournament />} />
+				<Route path="/Waiting" element={<Waiting />} />
+				<Route path="/Invitation" element={<Invitation />} />
+				<Route path="/TournamentMain" element={<Matching />} />
+				<Route path="/MatchResult" element={<MatchResult />} />
+			</Routes>
+		</Router>
+	</>
+	)
+}
 
-export default App;
+export default App

@@ -2,68 +2,68 @@
 
 /* font */
 @font-face {
-  font-family: 'SuperPixel';
-  src: url('./assets/fonts/Super_Pixel_Personal_Use.ttf');
+	font-family: 'SuperPixel';
+	src: url('./assets/fonts/SuperPixel.ttf');
 }
 
 @font-face {
-  font-family: 'QuinqueFive';
-  src: url('./assets/fonts/QuinqueFive.ttf');
+	font-family: 'QuinqueFive';
+	src: url('./assets/fonts/QuinqueFive.ttf');
 }
 
 @font-face {
-  font-family: 'StWinterPixel24BoldDemoBold';
-  src: url('./assets/fonts/StWinterPixel24BoldDemoBold.otf');
+	font-family: 'StWinterPixel';
+	src: url('./assets/fonts/StWinterPixel.otf');
 }
 
 @font-face {
-  font-family: 'Sixtyfour-Regular';
-  src: url('./assets/fonts/Sixtyfour-Regular.ttf');
+	font-family: 'Sixtyfour';
+	src: url('./assets/fonts/Sixtyfour.ttf');
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('./assets/fonts/Inter.ttf');
+	font-family: 'Inter';
+	src: url('./assets/fonts/Inter.ttf');
 }
 
 /* Color */
 @layer base {
-  :root {
+	:root {
     --Main-title: #C96565;
-  }
+	}
 }
 
 @layer components {
-  .MainTitleColor {
+	.MainTitleColor {
     color: var(--Main-title);
-  }
+	}
 }
 
 @layer base {
-  :root {
+	:root {
     --Change-NickName: #827E7C;
-  }
+	}
 }
 
 @layer components {
-  .ChangeNickName {
+	.ChangeNickName {
     color: var(--Change-NickName);
-  }
+	}
 }
 
 @layer base {
-  :root {
+	:root {
     --A91515: #F56161;
-  }
+	}
 }
 
 @layer components {
-  .A91515 {
+	.A91515 {
     color: var(--A91515);
-  }
+	}
 }
 
 /* 좌우 반전 css */
 .flip-image {
-  transform: scaleX(-1);
+	transform: scaleX(-1);
 }
