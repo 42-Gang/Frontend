@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import ConfirmLogoutPopup from "./components/ConfirmLogoutPopup"
 
 const ConfirmLogout = () => {
@@ -14,14 +15,27 @@ const ConfirmLogout = () => {
 		>
 			Log out
 		</button>
-		{isOpenConfirmLogout && (
-			<>
-			<div className="bg-black opacity-50 fixed inset-0"/>
-			<div>
-				<ConfirmLogoutPopup onClose={togglePopup}/>
-			</div>
-		</>
-		)}
+		<AnimatePresence>
+				{isOpenConfirmLogout && (
+					<>
+						<motion.div 
+							className="fixed inset-0 bg-black opacity-50 z-40"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 0.5 }}
+							exit={{ opacity: 0 }}
+						/>
+						<motion.div 
+							className="fixed inset-0 flex justify-center items-center z-40"
+							initial={{ opacity: 0, scale: 0.8 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0.8 }}
+							transition={{ duration: 0.3, ease: "easeInOut" }}
+						>
+							<ConfirmLogoutPopup onClose={togglePopup}/>
+						</motion.div>
+					</>
+				)}
+			</AnimatePresence>
 	</div>
 	)
 }

@@ -20,6 +20,7 @@ const ConfirmLogoutPopup: React.FC<ConfirmLogoutPopupProps> = ({ onClose }) => {
 		localStorage.removeItem("token")
 		navigate('/')
 	}
+	
 	return (
 		<div className="bg-white w-[602px] h-[256px] rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center ">
 			<p className="font-['Sixtyfour'] text-black text-[20px] absolute top-[20px]" >
