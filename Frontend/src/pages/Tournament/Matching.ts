@@ -1,11 +1,5 @@
 import styled, { css, createGlobalStyle } from "styled-components";
-
-export const LINE_POSITION = {
-  LEFT_VERTICAL: "46px",
-  RIGHT_VERTICAL: "420px",
-  LEFT_HORIZONTAL: "46px",
-  RIGHT_HORIZONTAL: "335px",
-};
+import { LINE_HEIGHT, LINE_COLOR } from "./LineConstants";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -22,11 +16,37 @@ export const ProfileOverlay = styled.div`
   pointer-events: none;
 `;
 
-export const UserGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows: repeat(2, auto);
-  gap: 120px 270px;
+export const LineWrapper = styled.div`
+  position: relative;
+`;
+
+export const VerticalLine = styled.div<{
+  top?: string;
+  left: string;
+  color?: string;
+  height?: string;
+}>`
+  position: absolute;
+  top: ${({ top }) => top ?? "108px"};
+  left: ${({ left }) => left};
+  width: 2px;
+  height: ${({ height }) => height ?? LINE_HEIGHT.FULL};
+  background-color: ${({ color }) => color ?? LINE_COLOR.DEFAULT};
+  z-index: 5;
+`;
+
+export const HorizontalLine = styled.div<{
+  top?: string;
+  left: string;
+  color?: string;
+}>`
+  position: absolute;
+  top: ${({ top }) => top ?? "156px"};
+  left: ${({ left }) => left};
+  width: 85px;
+  height: 2px;
+  background-color: ${({ color }) => color ?? LINE_COLOR.DEFAULT};
+  z-index: 5;
 `;
 
 export const UserProfile = styled.div<{ isReady: boolean }>`
@@ -52,15 +72,6 @@ export const UserProfile = styled.div<{ isReady: boolean }>`
 
 export const UserImage = styled.img``;
 
-export const SixtyfourFont = createGlobalStyle`
-  @font-face {
-    font-family: 'Sixtyfour';
-    src: url('../../assets/fonts/Sixtyfour.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-`;
-
 export const UserName = styled.span`
   margin-top: 8px;
   font-size: 12px;
@@ -68,28 +79,13 @@ export const UserName = styled.span`
   font-family: "Sixtyfour", sans-serif;
 `;
 
-export const LineWrapper = styled.div`
-  position: relative;
-`;
-
-export const VerticalLine = styled.div<{ left: string }>`
-  position: absolute;
-  top: 108px;
-  left: ${({ left }) => left};
-  width: 1.1px;
-  height: 100px;
-  background-color: white;
-  z-index: 5;
-`;
-
-export const HorizontalLine = styled.div<{ left: string }>`
-  position: absolute;
-  top: 156px;
-  left: ${({ left }) => left};
-  width: 85px;
-  height: 1.1px;
-  background-color: white;
-  z-index: 5;
+export const SixtyfourFont = createGlobalStyle`
+  @font-face {
+    font-family: 'Sixtyfour';
+    src: url('../../assets/fonts/Sixtyfour.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 `;
 
 export const WinnerGrid = styled.div`
@@ -109,4 +105,11 @@ export const VsText = styled.div`
   font-size: 18px;
   font-family: "Sixtyfour", sans-serif;
   z-index: 10;
+`;
+
+export const UserGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, auto);
+  gap: 120px 270px;
 `;

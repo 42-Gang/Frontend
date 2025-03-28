@@ -1,4 +1,3 @@
-// components/SemiFinalGrid.tsx
 import React from "react";
 import { WinnerGrid, VsText } from "../Matching";
 import UserProfileCard from "./UserProfileCard";
