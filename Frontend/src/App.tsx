@@ -11,6 +11,7 @@ import GameOptionSelect from "./pages/GameOptionSelect/GameOptionSelect.tsx"
 import AutoGameModeSelect from "./pages/GameModeSelect/AutoGameModeSelect.tsx"
 import CustomGameModeSelect from "./pages/GameModeSelect/CustomGameModeSelect.tsx"
 import GameHistory from "./pages/GameHistory/GameHistory.tsx"
+import Setting from "./pages/Setting/Setting.tsx"
 
 {/* 예은 파트 */}
 import Tournament from "./pages/Tournament/Tournament.tsx"
@@ -50,8 +51,10 @@ const App = () => {
 				<Route path="/AutoGameModeSelect" element={<AutoGameModeSelect/>}/>
 				{/* 커스텀 게임 모드 선택 페이지 */}
 				<Route path="/CustomGameModeSelect" element={<CustomGameModeSelect/>}/>
-				{/* 히스토리 */}
+				{/* 히스토리 페이지 */}
 				<Route path="/GameHistory" element={<GameHistory/>}/>
+				{/* 세팅 페이지 */}
+				<Route path="/Setting" element={<Setting/>}/>
 				{/* 토너먼트 */}
 				<Route path="/Tournament" element={<Tournament />} />
 				<Route path="/Waiting" element={<Waiting />} />
