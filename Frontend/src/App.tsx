@@ -15,6 +15,7 @@ import Invitation from "./pages/Tournament/Invitation.tsx";
 import GameScreen from "./pages/game/GameScreen.tsx";
 import Matching from "./pages/Tournament/Matching.tsx";
 import MatchResult from "./pages/Tournament/MatchResult.tsx";
+import SemiFinalWaiting from "./pages/Tournament/SemiFinalWaiting.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="/Invitation" element={<Invitation />} />
           <Route path="/TournamentMain" element={<Matching />} />
           <Route path="/MatchResult" element={<MatchResult />} />
+          <Route path="/SemiFinalWaiting" element={<SemiFinalWaiting />} />
         </Routes>
       </Router>
     </>

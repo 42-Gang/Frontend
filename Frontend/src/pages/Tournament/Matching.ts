@@ -100,7 +100,7 @@ export const WinnerGrid = styled.div`
 export const VsText = styled.div`
   position: absolute;
   top: 145px;
-  left: 215px;
+  left: 213px;
   color: white;
   font-size: 18px;
   font-family: "Sixtyfour", sans-serif;
