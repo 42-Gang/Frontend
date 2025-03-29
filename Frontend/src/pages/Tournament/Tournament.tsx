@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import ExitIcon from "../../assets/image/TournamentExitButton.svg";
+import GlobalStyle from "../../styles/GlobalStyles";
+import { useNavigate } from "react-router-dom";
+
 import {
-  GlobalStyle,
   TournamentContainer,
   TournamentTitle,
   ChatContainer,
@@ -8,8 +11,10 @@ import {
   ChatMessage,
   ChatInputContainer,
   ChatInput,
+  ChatScrollArea,
   SendButton,
   ReadyButton,
+  ExitButton,
 } from "./Tournament";
 
 interface TournamentProps {
@@ -30,6 +35,7 @@ const Tournament: React.FC<TournamentProps> = ({
   const [messages, setMessages] = useState(mockMessages);
   const [inputValue, setInputValue] = useState("");
   const chatEndRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== "") {
@@ -51,34 +57,30 @@ const Tournament: React.FC<TournamentProps> = ({
     <>
       <GlobalStyle />
       <TournamentContainer>
+        <ExitButton onClick={() => navigate("/Home")} aria-label="Exit to home">
+          <img src={ExitIcon} alt="Exit" />
+        </ExitButton>
         <TournamentTitle>Tournament</TournamentTitle>
-        {/* ✅ 커스텀 버튼이 전달되면 사용, 아니면 기본 ReadyButton */}
         {customButton ?? <ReadyButton onClick={onReadyClick} />}
       </TournamentContainer>
+
       <ChatContainer>
         <ChatHeader>Chat</ChatHeader>
-        <div
-          style={{
-            flexGrow: 1,
-            overflowY: "auto",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        <ChatScrollArea>
           {messages.map((msg) => (
             <ChatMessage key={msg.id}>
               <strong>{msg.user}:</strong> {msg.message}
             </ChatMessage>
           ))}
           <div ref={chatEndRef} />
-        </div>
+        </ChatScrollArea>
         <ChatInputContainer>
           <ChatInput
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Type a message..."
-            onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
           />
           <SendButton onClick={handleSendMessage}>Send</SendButton>
         </ChatInputContainer>
