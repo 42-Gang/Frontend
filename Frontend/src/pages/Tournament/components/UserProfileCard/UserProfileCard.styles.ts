@@ -13,6 +13,7 @@ export const ProfileImage = styled.img<{ isReady: boolean }>`
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid transparent;
+  transition: border-color 0.3s ease;
 
   ${({ isReady }) =>
     isReady &&
