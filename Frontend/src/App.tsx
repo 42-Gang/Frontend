@@ -11,11 +11,11 @@ import Select_GameMode_Custom from "./pages/gameSelect/Select_GameMode_Custom.ts
 import Setting from "./pages/setting/Setting.tsx";
 import History_Home from "./pages/gameHistory/History_Home.tsx";
 import Tournament from "./pages/Tournament/Tournament.tsx";
-import Waiting from "./pages/Tournament/Waiting.tsx";
-import Invitation from "./pages/Tournament/Invitation.tsx"
+import Invitation from "./pages/Tournament/Invitation.tsx";
 import GameScreen from "./pages/game/GameScreen.tsx";
 import Matching from "./pages/Tournament/Matching.tsx";
 import MatchResult from "./pages/Tournament/MatchResult.tsx";
+import SemiFinalWaiting from "./pages/Tournament/SemiFinalWaiting.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -55,13 +55,13 @@ const App = () => {
           <Route path="/History_Home" element={<History_Home />} />
           {/* <Route path="/History_1vs1" element={<History_1vs1 />} /> */}
           {/* 게임 화면 */}
-			    <Route path="/GameScreen" element={<GameScreen />} />
+          <Route path="/GameScreen" element={<GameScreen />} />
           {/* 토너먼트 */}
           <Route path="/Tournament" element={<Tournament />} />
-          <Route path="/Waiting" element={<Waiting />} />
           <Route path="/Invitation" element={<Invitation />} />
           <Route path="/TournamentMain" element={<Matching />} />
           <Route path="/MatchResult" element={<MatchResult />} />
+          <Route path="/SemiFinalWaiting" element={<SemiFinalWaiting />} />
         </Routes>
       </Router>
     </>
