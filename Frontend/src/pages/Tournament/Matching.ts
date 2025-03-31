@@ -1,4 +1,4 @@
-import styled, { css, createGlobalStyle } from "styled-components";
+import styled, { css } from "styled-components";
 import { LINE_HEIGHT, LINE_COLOR } from "./LineConstants";
 
 export const Wrapper = styled.div`
@@ -79,15 +79,6 @@ export const UserName = styled.span`
   font-family: "Sixtyfour", sans-serif;
 `;
 
-export const SixtyfourFont = createGlobalStyle`
-  @font-face {
-    font-family: 'Sixtyfour';
-    src: url('../../assets/fonts/Sixtyfour.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-`;
-
 export const WinnerGrid = styled.div`
   position: absolute;
   top: 118px;
@@ -95,16 +86,6 @@ export const WinnerGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 100px);
   gap: 0 30px;
-`;
-
-export const VsText = styled.div`
-  position: absolute;
-  top: 145px;
-  left: 213px;
-  color: white;
-  font-size: 18px;
-  font-family: "Sixtyfour", sans-serif;
-  z-index: 10;
 `;
 
 export const UserGrid = styled.div`
