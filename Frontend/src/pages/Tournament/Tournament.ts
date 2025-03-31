@@ -1,16 +1,5 @@
 import styled from "styled-components";
-import SixtyfourFont from "../../assets/fonts/Sixtyfour.ttf";
-import { createGlobalStyle } from "styled-components";
 import ReadyButtonImage from "../../assets/image/ReadyButton.png";
-
-export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Sixtyfour';
-    src: url(${SixtyfourFont}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-`;
 
 export const TournamentContainer = styled.div`
   width: 530px; /* 800px - 채팅창 너비(270px) */
@@ -62,10 +51,7 @@ export const ChatMessage = styled.div`
 
 export const ChatInputContainer = styled.div`
   display: flex;
-  position: relative;
   bottom: -3px;
-  left: -2px;
-  right: 10px;
   background-color: #fd906f;
   padding: 5px;
   border-radius: 5px;
@@ -97,6 +83,13 @@ export const SendButton = styled.button`
   }
 `;
 
+export const ChatScrollArea = styled.div`
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ReadyButton = styled.button`
   position: absolute;
   bottom: -10px;
@@ -110,6 +103,28 @@ export const ReadyButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const ExitButton = styled.button`
+  position: absolute;
+  top: 16px;
+  left: 7px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   &:hover {
     opacity: 0.8;

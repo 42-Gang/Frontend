@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import SixtyfourFont from "../assets/fonts/Sixtyfour.ttf";
 
 const GlobalStyle = createGlobalStyle`
   html, body, #root {
@@ -16,6 +17,13 @@ const GlobalStyle = createGlobalStyle`
     left: 50%;
     transform: translate(-50%, -50%); /* 화면 중앙 정렬 */
     background-color: white;
+  }
+
+  @font-face {
+    font-family: 'Sixtyfour';
+    src: url(${SixtyfourFont}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
   }
 
   * {
