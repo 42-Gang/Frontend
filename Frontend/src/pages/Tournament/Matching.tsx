@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Tournament from "./Tournament.tsx";
-import { Wrapper, ProfileOverlay, LineWrapper } from "./Matching";
+import { useNavigate } from "react-router-dom";
+import {
+  Wrapper,
+  ProfileOverlay,
+  LineWrapper,
+  VsTextWrapper,
+  ExitImage,
+  ExitButtonWrapper,
+} from "./Matching";
 import SemiFinalGrid from "./components/SemiFinalGrid/index";
 import FourUsersGrid from "./components/FourUsersGrid";
 import MatchLines from "./components/MatchLines";
@@ -8,7 +16,9 @@ import VsText from "./components/\bVsText/\bindex.tsx";
 
 import BasicProfile1 from "../../assets/image/BasicProfile1.png";
 import BasicProfile2 from "../../assets/image/BasicProfile2.png";
+import ExitButtonImg from "../../assets/image/ExitButton.png";
 
+// 임시 유저 데이터
 const mockUsers = [
   { id: 1, name: "PONG", profileImage: BasicProfile1 },
   { id: 2, name: "DING", profileImage: BasicProfile2 },
@@ -27,6 +37,23 @@ const Matching = () => {
   const [readyStates, setReadyStates] = useState<{ [userId: number]: boolean }>(
     {}
   );
+
+  const [gameEnded, setGameEnded] = useState(false);
+  const [finalWinner, setFinalWinner] = useState<null | (typeof mockUsers)[0]>(
+    null
+  );
+
+  const navigate = useNavigate();
+
+  // 임시 API 응답 시뮬레이션 (이긴 사람을 DING으로 가정)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const winnerFromAPI = mockUsers.find((user) => user.name === "DING");
+      setFinalWinner(winnerFromAPI || null);
+      setGameEnded(true);
+    }, 5000); // 예시: 5초 뒤 게임 끝
+    return () => clearTimeout(timeout);
+  }, []);
 
   const handleReadyClick = () => {
     const mockSendPayload = {
@@ -49,29 +76,19 @@ const Matching = () => {
       [data.user_id]: true,
     }));
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      handleReceiveReady({ user_id: 2 });
-    }, 4000);
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <Wrapper>
       <ProfileOverlay>
         <LineWrapper>
-          <SemiFinalGrid users={mockWinners} readyStates={readyStates} />
-          <div
-            style={{
-              position: "absolute",
-              top: "143px",
-              left: "210px",
-              zIndex: 10,
-            }}
-          >
+          <SemiFinalGrid
+            users={mockWinners}
+            readyStates={readyStates}
+            gameEnded={gameEnded}
+            finalWinnerId={finalWinner?.id}
+          />
+          <VsTextWrapper>
             <VsText />
-          </div>
+          </VsTextWrapper>
           <MatchLines
             winnerId={mockWinners[0].id}
             leftUserId={mockUsers[2].id}
@@ -87,7 +104,16 @@ const Matching = () => {
           <FourUsersGrid users={mockUsers} />
         </LineWrapper>
       </ProfileOverlay>
-      <Tournament onReadyClick={handleReadyClick} />
+      <Tournament
+        onReadyClick={handleReadyClick}
+        customButton={
+          gameEnded ? (
+            <ExitButtonWrapper onClick={() => navigate("/Home")}>
+              <ExitImage src={ExitButtonImg} alt="Exit" />
+            </ExitButtonWrapper>
+          ) : undefined
+        }
+      />
     </Wrapper>
   );
 };
