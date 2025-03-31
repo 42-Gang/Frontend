@@ -1,3 +1,4 @@
+// Matching.tsx
 import React, { useState, useEffect } from "react";
 import Tournament from "./Tournament.tsx";
 import { Wrapper, ProfileOverlay, LineWrapper } from "./Matching";
@@ -11,7 +12,6 @@ import MatchLines from "./components/MatchLines";
 import BasicProfile1 from "../../assets/image/BasicProfile1.png";
 import BasicProfile2 from "../../assets/image/BasicProfile2.png";
 
-// 임시 유저 데이터
 const mockUsers = [
   { id: 1, name: "PONG", profileImage: BasicProfile1 },
   { id: 2, name: "DING", profileImage: BasicProfile2 },
@@ -24,7 +24,7 @@ const mockWinners = [
   { id: 2, name: "DING", profileImage: BasicProfile2 },
 ];
 
-const currentUserId = 3;
+const mockCurrentUserId = 3;
 
 const Matching = () => {
   const [readyStates, setReadyStates] = useState<{ [userId: number]: boolean }>(
@@ -39,7 +39,7 @@ const Matching = () => {
       data: {
         tournament_id: 135,
         match_id: 737,
-        user_id: currentUserId,
+        user_id: mockCurrentUserId,
       },
     };
 
@@ -65,7 +65,21 @@ const Matching = () => {
       <ProfileOverlay>
         <LineWrapper>
           <SemiFinalGrid users={mockWinners} readyStates={readyStates} />
-          <MatchLines />
+
+          <MatchLines
+            winnerId={mockWinners[0].id}
+            leftUserId={mockUsers[2].id}
+            rightUserId={mockUsers[0].id}
+            direction="left"
+          />
+
+          <MatchLines
+            winnerId={mockWinners[1].id}
+            leftUserId={mockUsers[1].id}
+            rightUserId={mockUsers[3].id}
+            direction="right"
+          />
+
           <FourUsersGrid users={mockUsers} />
         </LineWrapper>
       </ProfileOverlay>

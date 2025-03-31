@@ -34,7 +34,7 @@ const App = () => {
 		window.removeEventListener("resize", lockWindowSize)
 	}
 	}, [])
-
+  
 	return (
 	<>
 		<GlobalStyle />

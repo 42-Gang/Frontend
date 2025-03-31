@@ -1,4 +1,3 @@
-// components/FourUsersGrid.tsx
 import React from "react";
 import { UserGrid } from "../Matching";
 import UserProfileCard from "./UserProfileCard";
