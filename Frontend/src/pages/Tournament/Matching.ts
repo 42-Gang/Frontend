@@ -79,18 +79,25 @@ export const UserName = styled.span`
   font-family: "Sixtyfour", sans-serif;
 `;
 
-export const WinnerGrid = styled.div`
+export const VsTextWrapper = styled.div`
   position: absolute;
-  top: 118px;
-  left: 118px;
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  gap: 0 30px;
+  top: 143px;
+  left: 212px;
+  z-index: 10;
 `;
 
-export const UserGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows: repeat(2, auto);
-  gap: 120px 270px;
+export const ExitButtonWrapper = styled.button`
+  position: absolute;
+  bottom: 40px;
+  left: 210px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+`;
+
+export const ExitImage = styled.img`
+  width: 200px;
+  height: auto;
+  object-fit: contain;
 `;

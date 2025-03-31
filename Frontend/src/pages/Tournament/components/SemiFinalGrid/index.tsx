@@ -6,11 +6,15 @@ import { GridWrapper } from "./SemiFinalGrid.styles.ts";
 interface SemiFinalGridProps {
   users: User[];
   readyStates: { [userId: number]: boolean };
+  gameEnded?: boolean;
+  finalWinnerId?: number;
 }
 
 const SemiFinalGrid: React.FC<SemiFinalGridProps> = ({
   users,
   readyStates,
+  gameEnded = false,
+  finalWinnerId,
 }) => {
   return (
     <GridWrapper>
@@ -19,6 +23,7 @@ const SemiFinalGrid: React.FC<SemiFinalGridProps> = ({
           key={user.id}
           user={user}
           isReady={readyStates[user.id]}
+          isWinner={gameEnded && user.id === finalWinnerId}
         />
       ))}
     </GridWrapper>

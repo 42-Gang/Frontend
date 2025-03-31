@@ -29,3 +29,14 @@ export const Name = styled.p`
   margin-top: 6px;
   text-align: center;
 `;
+
+export const WinnerText = styled.p`
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-45%);
+  font-family: "Sixtyfour";
+  font-size: 16px;
+  color: #ecf411;
+  z-index: 10;
+`;
