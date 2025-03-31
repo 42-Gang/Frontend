@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Tournament from "./Tournament.tsx";
 import { useNavigate } from "react-router-dom";
+
+// styles
 import {
   Wrapper,
   ProfileOverlay,
@@ -9,14 +11,22 @@ import {
   ExitImage,
   ExitButtonWrapper,
 } from "./Matching";
+
+// components
 import SemiFinalGrid from "./components/SemiFinalGrid/index";
 import FourUsersGrid from "./components/FourUsersGrid";
 import MatchLines from "./components/MatchLines";
 import VsText from "./components/\bVsText/\bindex.tsx";
+import { ToastStyle, CustomToastContainer } from "./Matching";
 
+// Images
 import BasicProfile1 from "../../assets/image/BasicProfile1.png";
 import BasicProfile2 from "../../assets/image/BasicProfile2.png";
 import ExitButtonImg from "../../assets/image/ExitButton.png";
+
+// etc
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // 임시 유저 데이터
 const mockUsers = [
@@ -45,37 +55,34 @@ const Matching = () => {
 
   const navigate = useNavigate();
 
-  // 임시 API 응답 시뮬레이션 (이긴 사람을 DING으로 가정)
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const winnerFromAPI = mockUsers.find((user) => user.name === "DING");
-      setFinalWinner(winnerFromAPI || null);
-      setGameEnded(true);
-    }, 5000); // 예시: 5초 뒤 게임 끝
-    return () => clearTimeout(timeout);
-  }, []);
-
-  const handleReadyClick = () => {
-    const mockSendPayload = {
-      action: "send",
-      category: "game",
-      resource: "ready",
-      data: {
-        tournament_id: 135,
-        match_id: 737,
-        user_id: currentUserId,
-      },
-    };
-
-    handleReceiveReady(mockSendPayload.data);
-  };
-
   const handleReceiveReady = (data: { user_id: number }) => {
     setReadyStates((prev) => ({
       ...prev,
       [data.user_id]: true,
     }));
   };
+
+  const handleReadyClick = () => {
+    // 본인 Ready 처리 (PING)
+    handleReceiveReady({ user_id: currentUserId });
+    // 상대방 Ready 처리 (DING) → 1초 후
+    setTimeout(() => {
+      const opponentId = 2;
+      handleReceiveReady({ user_id: opponentId });
+      // Toast 띄우기
+      setTimeout(() => {
+        toast.success("🏓 곧 게임이 시작됩니다!", {
+          position: "top-center",
+          autoClose: 2000,
+        });
+        // 3초 뒤 게임 화면으로 이동
+        setTimeout(() => {
+          navigate("/GameScreen");
+        }, 3000);
+      }, 100); // 테두리 반영 여유 시간
+    }, 1000);
+  };
+
   return (
     <Wrapper>
       <ProfileOverlay>
@@ -114,6 +121,13 @@ const Matching = () => {
           ) : undefined
         }
       />
+      <CustomToastContainer
+        position="top-center"
+        autoClose={2000}
+        toastClassName="custom-toast"
+        style={{ marginLeft: "10px" }}
+      />
+      <ToastStyle />
     </Wrapper>
   );
 };
