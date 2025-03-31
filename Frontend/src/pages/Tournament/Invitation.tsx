@@ -22,7 +22,7 @@ import {
   LoadingIndicator,
   ToastStyle,
 } from "./Invitation";
-import InviteIcon from "../../assets/image/InviteIcon.svg"; // 초대 수락하면 이걸로 변경되게 (추후 api 연동시 구현 예정)
+import InviteIcon from "../../assets/image/InviteIcon.svg";
 import ModalCancel from "../../assets/image/ModalCancel.svg";
 import FriendIcon from "../../assets/image/BasicProfile2.png";
 import InviteButtonIcon from "../../assets/image/InviteButton.svg";
@@ -30,7 +30,6 @@ import InvitedButtonIcon from "../../assets/image/InvitedButton.svg";
 import DefaultProfile from "../../assets/image/BasicProfile1.png";
 import styled from "styled-components";
 
-// 임시 데이터
 const friends = [
   { id: 1, name: "PANG", imageUrl: DefaultProfile },
   { id: 2, name: "GANG", imageUrl: FriendIcon },
@@ -47,7 +46,6 @@ const SmallLoadingIndicator = styled(LoadingIndicator)`
   height: 23px;
 `;
 
-// 기본 테두리는 빨간색, READY 버튼을 누르면 초록색으로 변경
 const ReadyProfileImage = styled.img<{ $isReady: boolean }>`
   width: 90px;
   height: 90px;
@@ -61,40 +59,28 @@ const Invitation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loadingFriends, setLoadingFriends] = useState(new Set<number>());
   const [invitedFriends, setInvitedFriends] = useState<number[]>([]);
-  const [loadingButtons, setLoadingButtons] = useState<number | null>(null);
   const [acceptedFriends, setAcceptedFriends] = useState<number[]>([1]);
   const [isReady, setIsReady] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
   const handleInviteClick = (friendId: number) => {
     if (!invitedFriends.includes(friendId) && !loadingFriends.has(friendId)) {
       setInvitedFriends((prev) => [...prev, friendId]);
-
-      setLoadingFriends((prev) => {
-        const newSet = new Set(prev);
-        newSet.add(friendId);
-        return newSet;
-      });
+      setLoadingFriends((prev) => new Set(prev).add(friendId));
 
       toast.success(
         <>
           🏓 초대가 완료되었습니다 🏓
           <br />
-          상대방의 응답을 기다리는 중...
+          상대방의 응답을 기다린중...
         </>,
         {
           position: "top-right",
           autoClose: 1000,
           style: ToastStyle,
           draggable: true,
-          draggablePercent: 50,
         }
       );
 
@@ -104,33 +90,32 @@ const Invitation = () => {
           newSet.delete(friendId);
           return newSet;
         });
-
         setInvitedFriends((prev) => prev.filter((id) => id !== friendId));
       }, 5000);
     }
   };
 
-  // READY 버튼을 누를 때 테두리 변경
-  const toggleReadyState = () => {
-    setIsReady((prev) => !prev);
+  const handleReadyClick = () => {
+    setIsReady(true);
   };
 
   return (
     <>
-      <Tournament onReadyClick={toggleReadyState} />
+      <Tournament onReadyClick={handleReadyClick} />
 
-      {!isModalOpen && ( // 기본 빨간 테두리 → READY 버튼 클릭하면 초록 테두리
+      {!isModalOpen && (
         <InviteButtonContainer>
           <MatchupRow>
             {friends.slice(0, 2).map((friend, index) => (
               <React.Fragment key={friend.id}>
                 <InviteButtonWrapper>
                   <InviteButton
-                    onClick={friend.id !== 1 ? handleOpenModal : undefined}
-                    disabled={friend.id === 1} // PANG(본인 프로필)만 비활성화
+                    onClick={
+                      friend.id !== 1 && !isReady ? handleOpenModal : undefined
+                    }
+                    disabled={friend.id === 1 || isReady}
                   >
                     <ReadyProfileImage
-                      key={isReady.toString()}
                       src={friend.imageUrl}
                       alt="Profile"
                       $isReady={isReady}
@@ -142,16 +127,19 @@ const Invitation = () => {
               </React.Fragment>
             ))}
           </MatchupRow>
+
           <MatchupRow>
             {friends.slice(2, 4).map((friend, index) => (
               <React.Fragment key={friend.id}>
                 <InviteButtonWrapper>
-                  <InviteButton onClick={handleOpenModal}>
+                  <InviteButton
+                    onClick={!isReady ? handleOpenModal : undefined}
+                    disabled={isReady}
+                  >
                     <ReadyProfileImage
-                      key={isReady.toString()} // 상태 변경 강제 반영
                       src={friend.imageUrl}
                       alt="Profile"
-                      $isReady={isReady} // READY 버튼 클릭 시 테두리 색 변경
+                      $isReady={isReady}
                     />
                   </InviteButton>
                   <InviteUserName>{friend.name}</InviteUserName>
@@ -171,20 +159,13 @@ const Invitation = () => {
               <img
                 src={ModalCancel}
                 alt="Close"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  objectFit: "contain",
-                  display: "block",
-                  opacity: "1",
-                  zIndex: 1100,
-                }}
+                style={{ width: "35px", height: "35px", objectFit: "contain" }}
               />
             </ModalCloseButton>
             <FriendListContainer>
               {friends.map((friend) => (
                 <FriendRow key={friend.id}>
-                  <img // Friends List에서는 테두리 없는 기본 프로필
+                  <img
                     src={friend.imageUrl}
                     alt="Profile"
                     width="50"

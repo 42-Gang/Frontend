@@ -1,4 +1,3 @@
-// components/FinalResultDisplay.tsx
 import React from "react";
 import {
   CongratsText,
