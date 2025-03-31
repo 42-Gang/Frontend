@@ -24,13 +24,15 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({
     <Wrapper>
       <div style={{ position: "relative", width: size, height: size }}>
         {isWinner && <WinnerText>WINNER!</WinnerText>}
-        <ProfileImage
-          src={user.profileImage}
-          alt={user.name}
-          width={size}
-          height={size}
-          isReady={isReady}
-        />
+        <div style={{ position: "relative", width: size, height: size }}>
+          <ProfileImage
+            src={user.profileImage}
+            alt={user.name}
+            width={size}
+            height={size}
+            isReady={isReady}
+          />
+        </div>
       </div>
       <Name>{user.name}</Name>
     </Wrapper>
