@@ -14,7 +14,10 @@ const GameScreen = () => {
 	return (
 		<Container>
 			<button onClick={togglePopup} className="absolute right-[30px] top-[30px]">
-				<img src={MenuButton} className="cursor-pointer opacity-60 hover:opacity-100 transition-opacity duration-300"/>
+				<img
+					src={MenuButton}
+					className="cursor-pointer opacity-60 hover:opacity-100
+						transition-opacity duration-300"/>
 			</button>
 			<Score />
 			<Field />

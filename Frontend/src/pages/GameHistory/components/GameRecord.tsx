@@ -14,7 +14,9 @@ const GameRecord: React.FC<GameRecordProps> = ({ history }) => {
 		<div className="font-['Sixtyfour'] font-bold w-[452px] h-[47px]">
 			<div className="max-h-[260px] overflow-y-auto custom-scrollbar">
 				{history.map(( game, index ) => (
-					<div key={index} className="bg-gray-300 text-black rounded-md p-3 my-1 flex justify-between">
+					<div
+						key={index}
+						className="bg-gray-300 text-black rounded-md p-3 my-1 flex justify-between">
 						{"player" in game ? (
 							<>
 								<span className="text-[14px] flex items-center">
@@ -29,7 +31,11 @@ const GameRecord: React.FC<GameRecordProps> = ({ history }) => {
 								<span>{game.gameMode}</span>
 								<div>
 									{game.team.map(( member, i) => (
-										<div key={i} className="text-[14px] flex justify-center">{member}</div>
+										<div
+											key={i}
+											className="text-[14px] flex justify-center">
+												{member
+										}</div>
 									))}
 								</div>
 								<span className={`${getResultClass(game.result)}`}>

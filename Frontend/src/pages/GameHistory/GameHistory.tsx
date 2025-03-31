@@ -7,10 +7,11 @@ import GameRecord from "./components/GameRecord";
 import TotalWinsCounter from "./components/TotalWinsCounter";
 
 const GameHistory = () => {
+	const GameRecordClass = "absolute top-[240px] left-1/2 -translate-x-1/2"
 	const [mode, setMode] = useState<"1vs1" | "Tournament">("1vs1")
 
 	const gameData1vs1 = {
-		wins: 13,
+		wins: 135,
 		losses: 15,
 		history: [
 			{ player: "Jungslee", opponent: "PONG", result: "WIN" },
@@ -42,14 +43,14 @@ const GameHistory = () => {
 				{mode === "1vs1" ? (
 					<>
 						<WinLossCounter wins={gameData1vs1.wins} losses={gameData1vs1.losses}/>
-						<div className="absolute top-[240px] left-1/2 -translate-x-1/2">
+						<div className={GameRecordClass}>
 							<GameRecord history={gameData1vs1.history}/>
 						</div>
 					</>
 				) : (
 					<>
 						<TotalWinsCounter totalWins={gameDataTournament.totalWins}/>
-						<div className="absolute top-[240px] left-1/2 -translate-x-1/2">
+						<div className={GameRecordClass}>
 							<GameRecord history={gameDataTournament.history}/>
 						</div>
 					</>
