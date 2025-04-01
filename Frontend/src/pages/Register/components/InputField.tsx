@@ -1,16 +1,16 @@
 interface InputFieldProps {
-  label: string
-  type: string
-  width: string
+	label: string
+	type: string
+	width: string
 }
 
 const InputField = ({ label, type, width }: InputFieldProps) => {
-  return (
-    <div className="text-white font-['QuinqueFive'] text-[15px] flex items-center gap-[8px]">
-      <p className="flex-shrink-0 w-[220px] text-right">{label}:</p>
-      <input style={{width}} type={type} />
-    </div>
-  )
+	return (
+		<div className="text-white font-['QuinqueFive'] text-[15px] flex items-center gap-[8px]">
+			<p className="flex-shrink-0 w-[220px] text-right">{label}:</p>
+			<input style={{width}} type={type} />
+		</div>
+	)
 }
 
 export default InputField
