@@ -23,6 +23,7 @@ import Tournament from "./pages/Tournament/Tournament.tsx";
 import Invitation from "./pages/Tournament/Invitation.tsx";
 import Matching from "./pages/Tournament/Matching.tsx";
 import SemiFinalWaiting from "./pages/Tournament/SemiFinalWaiting.tsx";
+import SoloMatch from "./pages/SoloMatch/SoloMatch.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -69,6 +70,8 @@ const App = () => {
           <Route path="/Invitation" element={<Invitation />} />
           <Route path="/TournamentMain" element={<Matching />} />
           <Route path="/SemiFinalWaiting" element={<SemiFinalWaiting />} />
+          {/* 개인전 */}
+          <Route path="/SoloMatch" element={<SoloMatch />} />
         </Routes>
       </Router>
     </>
