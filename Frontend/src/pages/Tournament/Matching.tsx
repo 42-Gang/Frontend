@@ -17,7 +17,7 @@ import SemiFinalGrid from "./components/SemiFinalGrid/index";
 import FourUsersGrid from "./components/FourUsersGrid";
 import MatchLines from "./components/MatchLines";
 import VsText from "./components/\bVsText/\bindex.tsx";
-import { ToastStyle, CustomToastContainer } from "./Matching";
+import { CustomToastContainer, ToastStyle } from "../../styles/toastStyles";
 
 // Images
 import BasicProfile1 from "../../assets/image/BasicProfile1.png";
