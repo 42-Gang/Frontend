@@ -20,6 +20,8 @@ import {
 interface TournamentProps {
   onReadyClick?: () => void;
   customButton?: React.ReactNode;
+  showTitle?: boolean;
+  titleText?: string;
 }
 
 // 예제 채팅 데이터 (나중에 API로 대체)
@@ -31,6 +33,8 @@ const mockMessages = [
 const Tournament: React.FC<TournamentProps> = ({
   onReadyClick,
   customButton,
+  showTitle,
+  titleText,
 }) => {
   const [messages, setMessages] = useState(mockMessages);
   const [inputValue, setInputValue] = useState("");
@@ -60,7 +64,10 @@ const Tournament: React.FC<TournamentProps> = ({
         <ExitButton onClick={() => navigate("/Home")} aria-label="Exit to home">
           <img src={ExitIcon} alt="Exit" />
         </ExitButton>
-        <TournamentTitle>Tournament</TournamentTitle>
+        {showTitle !== false && (
+          <TournamentTitle>{titleText ?? "Tournament"}</TournamentTitle>
+        )}
+
         {customButton ?? <ReadyButton onClick={onReadyClick} />}
       </TournamentContainer>
 
