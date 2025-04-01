@@ -19,10 +19,12 @@ const ChangeNicknamePopup: React.FC<ChangeNicknamePopupProps> = ({ onClose, onCh
 	return (
 		<div
 			className="bg-white w-[602px] h-[256px] rounded-lg fixed
-				top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
+				top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center"
+    >
 			<button
 				onClick={onClose}
-				className="cursor-pointer absolute top-[6px] right-[6px]">
+				className="cursor-pointer absolute top-[6px] right-[6px]"
+      >
 				<img src={CancelButton} alt="Cancel"/>
 			</button>
 			<span className="font-['Sixtyfour'] text-[25px] text-black absolute top-[40px]">
