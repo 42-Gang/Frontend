@@ -7,7 +7,8 @@ interface ChangeProfileImgPopupProps {
 
 const SelectButton: React.FC<{ onClick: () => void; children: React.ReactNode}> = ({ onClick, children }) => (
 	<button
-		className="font-['Sixtyfour'] text-black text-2xl w-[550px] h-[80px] border-4 rounded-3xl cursor-pointer hover:border-red-500"
+		className="font-['Sixtyfour'] text-black text-2xl w-[550px] h-[80px]
+			border-4 rounded-3xl cursor-pointer hover:border-red-500"
 		onClick={onClick}
 	>
 		{children}

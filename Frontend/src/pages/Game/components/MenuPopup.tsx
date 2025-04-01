@@ -14,12 +14,12 @@ const MenuPopup: React.FC<GameMenuPopupProps> = ({ onClose }) => {
 
 	return (
 		<div className="bg-black w-[630px] h-[161px]">
-			<div className="font-['Sixtyfour'] text-white text-center">
+			<div className="font-['Sixtyfour'] text-white text-center relative">
 				<p className="mt-[30px]">
 					You will lose the game if you leave.
 					Are you sure you want to leave?
 				</p>
-				<div className="mt-[30px] space-x-40">
+				<div className="absolute left-1/2 -translate-x-1/2 top-[70px] space-x-40">
 					<button onClick={YesClick} className="cursor-pointer">
 						Yes
 					</button>
