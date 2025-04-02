@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CustomToastContainer, ToastStyle } from "../../styles/toastStyles";
 
@@ -19,8 +19,19 @@ const SoloMatch = () => {
   const [readyStates, setReadyStates] = useState<{ [userId: number]: boolean }>(
     {}
   );
+  const [winnerId, setWinnerId] = useState<number | null>(null);
   const toastShownRef = useRef(false);
+
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const stateWinnerId = location.state?.winnerId;
+    if (typeof stateWinnerId === "number") {
+      setWinnerId(stateWinnerId);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   const handleReceiveReady = (userId: number) => {
     setReadyStates((prev) => ({
@@ -31,8 +42,6 @@ const SoloMatch = () => {
 
   const handleReadyClick = () => {
     handleReceiveReady(mockUsers.pong.id);
-
-    // 2초 후 Ping도 Ready
     setTimeout(() => {
       handleReceiveReady(mockUsers.ping.id);
     }, 2000);
@@ -64,6 +73,7 @@ const SoloMatch = () => {
           rightUser={mockUsers.ping}
           readyStates={readyStates}
           size={90}
+          winnerId={winnerId}
         />
       </OverlayWrapper>
       <Tournament onReadyClick={handleReadyClick} titleText="1 vs 1" />
