@@ -1,16 +1,25 @@
 interface InputFieldProps {
-  label: string
-  type: string
-  width: string
+	label: string
+	value: string
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+	type: string
+	width: string
 }
 
-const InputField = ({ label, type, width }: InputFieldProps) => {
-  return (
-    <div className="text-white font-['QuinqueFive'] text-[15px] flex gap-[8px]">
-      <p className="flex-shrink-0 w-[110px] text-right">{label}:</p>
-      <input style={{ width }} type={type}/>
-    </div>
-  )
+const InputField = ({ label, value, onChange, type, width }: InputFieldProps) => {
+	return (
+		<div className="text-white flex gap-[8px]">
+			<p className="font-['QuinqueFive'] text-[15px] flex-shrink-0 w-[110px] text-right">
+				{label}:
+			</p>
+			<input
+				className="font-['Galmuri7'] text-[24px] h-[25px]"
+				style={{ width }}
+				type={type}
+				value={value}
+				onChange={onChange}/>
+		</div>
+	)
 }
 
 export default InputField
