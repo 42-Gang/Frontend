@@ -20,18 +20,18 @@ const GameScreen = () => {
 
     return () => clearTimeout(timeout);
   }, [navigate]);
+    
+  const [isOpenMenuPopup, setIsOpenMenuPopup] = useState(false)
 
-  const togglePopup = () => setIsOpenMenuPopup((prev) => !prev);
+  const togglePopup = () => setIsOpenMenuPopup((prev) => !prev)
 
   return (
     <Container>
-      <button
-        onClick={togglePopup}
-        className="absolute right-[30px] top-[30px]"
-      >
+      <button onClick={togglePopup} className="absolute right-[30px] top-[30px]">
         <img
           src={MenuButton}
-          className="cursor-pointer opacity-60 hover:opacity-100 transition-opacity duration-300"
+          className="cursor-pointer opacity-60 hover:opacity-100
+            transition-opacity duration-300"
         />
       </button>
       <Score />
@@ -39,26 +39,26 @@ const GameScreen = () => {
       <AnimatePresence>
         {isOpenMenuPopup && (
           <>
-            <motion.div
+            <motion.div 
               className="fixed inset-0 bg-black opacity-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
             />
-            <motion.div
+            <motion.div 
               className="fixed inset-0 flex justify-center items-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <MenuPopup onClose={togglePopup} />
+              <MenuPopup onClose={togglePopup}/>
             </motion.div>
           </>
         )}
       </AnimatePresence>
     </Container>
-  );
-};
+  )
+}
 
 export default GameScreen;
