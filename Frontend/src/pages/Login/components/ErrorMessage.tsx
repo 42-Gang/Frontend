@@ -1,27 +1,33 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from "react";
 
-const ErrorMessage = ({ message, setError }:{
-	message: string, setError: (msg: string) => void
+const ErrorMessage = ({ message, setError }: { 
+	message: string; setError: (msg: string) => void; 
 }) => {
-  useEffect(() => {
-    if (message) {
-      const timeout = setTimeout(() => {
-        setError("")
-      }, 3000)
+	const [visible, setVisible] = useState(false);
 
-      return () => clearTimeout(timeout)
-    }
-  }, [message, setError])
+	useEffect(() => {
+		if (message) {
+			setVisible(true); // 메시지를 나타나게 함
 
-  return (
-    <div
-      className={`text-red-500 font-['Galmuri7'] absolute left-1/2 -translate-x-1/2
-      text-[20px] top-[10px] transition-opacity duration-500
-      ${message ? "opacity-100" : "opacity-0"}`} // 메시지가 있을 때만 보이도록
-    >
-      {message}
-    </div>
-  )
-}
+			const hideTimer = setTimeout(() => setVisible(false), 2500); // 2.5초 후 서서히 사라짐
+			const removeTimer = setTimeout(() => setError(""), 3000); // 애니메이션 끝난 후 메시지 삭제
 
-export default ErrorMessage
+			return () => {
+				clearTimeout(hideTimer);
+				clearTimeout(removeTimer);
+			};
+		}
+	}, [message, setError]);
+
+	return message ? (
+		<div
+			className={`text-red-500 font-['Galmuri7'] absolute left-1/2 -translate-x-1/2
+				text-[20px] top-[10px] transition-opacity duration-500
+				${visible ? "opacity-100" : "opacity-0"}`}
+		>
+			{message}
+		</div>
+	) : null;
+};
+
+export default ErrorMessage;
