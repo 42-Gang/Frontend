@@ -1,13 +1,16 @@
-type PaddleProps = {
-  side: "left" | "right"
+interface PaddleProps {
+	ctx: CanvasRenderingContext2D
+	side: "left" | "right"
 }
 
-const Paddle = ({ side }: PaddleProps) => {
-  const position = side === "left" ? "left-[6px]" : "right-[6px]"
-  
-  return (
-    <div className={`${position} w-[5px] h-[80px] bg-white absolute top-1/2 -translate-y-1/2`}/>
-  )
+const Paddle = ({ ctx, side }: PaddleProps) => {
+	const paddleWidth = 5
+	const paddleHeight = 80
+	const x = side === "left" ? 6 : ctx.canvas.width - 6 - paddleWidth
+	const y = ctx.canvas.height / 2 - paddleHeight / 2
+
+	ctx.fillStyle = "white"
+	ctx.fillRect(x, y, paddleWidth, paddleHeight)
 }
 
 export default Paddle
