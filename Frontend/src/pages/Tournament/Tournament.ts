@@ -18,10 +18,12 @@ export const TournamentContainer = styled.div`
 
 export const TournamentTitle = styled.h1`
   font-family: "Sixtyfour", sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing: 2px;
   color: white;
-  margin-left: 82px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  transform: translateX(1px);
 `;
 
 export const ChatContainer = styled.div`
