@@ -25,7 +25,7 @@ const GameScreen = () => {
 				<Score/>
 			</div>
 			<div className="absolute top-[155px] z-10">
-				<GameCanvas/>
+				<GameCanvas ballImg={BallBullet}/>
 			</div>
 		</Container>
 	)
